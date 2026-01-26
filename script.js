@@ -645,14 +645,14 @@ document.addEventListener('DOMContentLoaded', () => {
             return;
         }
 
-        verbs.forEach(verbKey => {
+        verbs.forEach((verbKey, index) => {
             const data = VERB_SENTENCES[verbKey];
-            const card = createVerbCard(verbKey, data);
+            const card = createVerbCard(verbKey, data, index + 1);
             projectContainer.appendChild(card);
         });
     }
 
-    function createVerbCard(verbName, data) {
+    function createVerbCard(verbName, data, index) {
         const card = document.createElement('div');
         card.className = 'verb-sentence-card';
 
@@ -666,7 +666,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
         const html = `
             <div class="verb-card-header">
-                <div class="verb-card-title">${verbName}</div>
+                <div class="verb-card-title">${index}. ${verbName}</div>
             </div>
             <div class="verb-sentences-grid">
                 <!-- Headers -->
