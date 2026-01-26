@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>English Pronunciation Helper</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+</head>
+
+<body>
+    <div class="container">
+        <h1>English Pronunciation</h1>
+
+        <div class="tabs">
+            <button class="tab-btn active" data-tab="search">Search</button>
+            <button class="tab-btn" data-tab="verbs">Verb List</button>
+            <button class="tab-btn" data-tab="practice">Practice</button>
+            <button class="tab-btn" data-tab="project">Proyecto</button>
+        </div>
+
+        <!-- SEARCH TAB -->
+        <div id="searchTab" class="tab-content active">
+            <div class="search-box">
+                <input type="text" id="wordInput" placeholder="Enter a word in English..." autocomplete="off">
+                <button id="searchBtn">Search</button>
+            </div>
+
+            <div id="resultContainer" class="result-container hidden">
+                <!-- Results will be injected here -->
+                <div class="result-item">
+                    <span class="label">Word:</span>
+                    <span id="displayWord" class="value"></span>
+                </div>
+
+                <div class="result-item">
+                    <span class="label">IPA:</span>
+                    <span id="displayIPA" class="value"></span>
+                </div>
+
+                <div class="result-item">
+                    <span class="label">Pronunciation (Spanish):</span>
+                    <span id="displaySpanish" class="value spanish-pronunciation"></span>
+                </div>
+
+                <button id="listenBtn" class="listen-btn">
+                    🔊 Listen
+                </button>
+            </div>
+
+            <div id="errorContainer" class="error-container hidden"></div>
+        </div>
+
+        <!-- VERB LIST TAB -->
+        <div id="verbsTab" class="tab-content hidden">
+            <div class="header-actions" style="text-align: right; margin-bottom: 10px;">
+                <button id="printBtn" class="primary-btn small-btn">🖨️ Print PDF</button>
+            </div>
+            <div id="verbListContainer"></div>
+        </div>
+
+        <!-- PRACTICE TAB -->
+        <div id="practiceTab" class="tab-content hidden">
+            <div id="startScreen" class="game-section">
+                <h2>Verb Practice Game</h2>
+                <p>Test your knowledge of the 120 verbs!</p>
+                <div class="score-summary hidden" id="lastScoreSection">Last Score: <span id="lastScoreValue">0</span>
+                </div>
+                <button id="startGameBtn" class="primary-btn">Start Game</button>
+            </div>
+
+            <div id="gameScreen" class="game-section hidden">
+                <div class="game-header">
+                    <span id="questionCounter">Question 1/10</span>
+                    <span id="scoreDisplay">Score: 0</span>
+                </div>
+                <div class="question-box">
+                    <h3 id="questionText">Translate: ...</h3>
+
+                    <div id="optionsGrid" class="options-grid">
+                        <!-- Options injected here -->
+                    </div>
+
+                    <div id="typingArea" class="typing-area hidden">
+                        <input type="text" id="typeInput" placeholder="Type your answer here..." autocomplete="off">
+                        <button id="submitTypeBtn" class="primary-btn small-btn">Submit</button>
+                    </div>
+                </div>
+            </div>
+
+            <div id="feedbackScreen" class="game-section hidden">
+                <div id="feedbackMessage"></div>
+                <button id="nextQuestionBtn" class="primary-btn">Next Question</button>
+            </div>
+        </div>
+
+        <!-- PROJECT TAB -->
+        <div id="projectTab" class="tab-content hidden">
+            <h2 style="margin-bottom: 20px; color: var(--text-main);">Irregular Verbs Sentences</h2>
+            <div id="projectContainer">
+                <!-- Verb Cards will be injected here -->
+            </div>
+        </div>
+
+    </div>
+
+    <script src="verbs.js"></script>
+    <script src="sentences.js"></script>
+    <script src="script.js"></script>
+</body>
+
+</html>
