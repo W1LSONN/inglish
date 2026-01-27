@@ -675,6 +675,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 <div class="grid-header">Pasado Simple</div>
                 <div class="grid-header">Participio</div>
                 <div class="grid-header">Futuro</div>
+                <div class="grid-header">Going To</div>
 
                 <!-- Positive Row -->
                 <div class="row-label">Positiva <small>(+)</small></div>
@@ -682,6 +683,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 <div class="sentence-cell">${renderCell(data.past?.positive)}</div>
                 <div class="sentence-cell">${renderCell(data.participle?.positive)}</div>
                 <div class="sentence-cell">${renderCell(data.future?.positive)}</div>
+                <div class="sentence-cell">${renderCell(data.goingTo?.positive)}</div>
 
                 <!-- Negative Row -->
                 <div class="row-label">Negativa <small>(-)</small></div>
@@ -689,6 +691,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 <div class="sentence-cell">${renderCell(data.past?.negative)}</div>
                 <div class="sentence-cell">${renderCell(data.participle?.negative)}</div>
                 <div class="sentence-cell">${renderCell(data.future?.negative)}</div>
+                <div class="sentence-cell">${renderCell(data.goingTo?.negative)}</div>
 
                 <!-- Question Row -->
                 <div class="row-label">Pregunta <small>(?)</small></div>
@@ -696,6 +699,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 <div class="sentence-cell">${renderCell(data.past?.question)}</div>
                 <div class="sentence-cell">${renderCell(data.participle?.question)}</div>
                 <div class="sentence-cell">${renderCell(data.future?.question)}</div>
+                <div class="sentence-cell">${renderCell(data.goingTo?.question)}</div>
             </div>
         `;
 
