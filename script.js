@@ -658,6 +658,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
         const renderCell = (content) => {
             if (!content) return '-';
+            // Handle if content is still an array (though we refactored to strings, just in case)
             if (Array.isArray(content)) {
                 return `<ul class="sentence-list"><li>${content.join('</li><li>')}</li></ul>`;
             }
@@ -671,34 +672,34 @@ document.addEventListener('DOMContentLoaded', () => {
             <div class="verb-sentences-grid">
                 <!-- Headers -->
                 <div></div>
-                <div class="grid-header">Infinitivo</div>
-                <div class="grid-header">Pasado Simple</div>
-                <div class="grid-header">Participio</div>
-                <div class="grid-header">Futuro</div>
-                <div class="grid-header">Going To</div>
+                <div class="grid-header">Present Simple</div>
+                <div class="grid-header">Past Simple</div>
+                <div class="grid-header">Present Continuous</div>
+                <div class="grid-header">Present Perfect</div>
+                <div class="grid-header">Future (Going To)</div>
 
                 <!-- Positive Row -->
                 <div class="row-label">Positiva <small>(+)</small></div>
-                <div class="sentence-cell">${renderCell(data.infinitive?.positive)}</div>
+                <div class="sentence-cell">${renderCell(data.presentSimple?.positive)}</div>
                 <div class="sentence-cell">${renderCell(data.past?.positive)}</div>
-                <div class="sentence-cell">${renderCell(data.participle?.positive)}</div>
-                <div class="sentence-cell">${renderCell(data.future?.positive)}</div>
+                <div class="sentence-cell">${renderCell(data.presentContinuous?.positive)}</div>
+                <div class="sentence-cell">${renderCell(data.presentPerfect?.positive)}</div>
                 <div class="sentence-cell">${renderCell(data.goingTo?.positive)}</div>
 
                 <!-- Negative Row -->
                 <div class="row-label">Negativa <small>(-)</small></div>
-                <div class="sentence-cell">${renderCell(data.infinitive?.negative)}</div>
+                <div class="sentence-cell">${renderCell(data.presentSimple?.negative)}</div>
                 <div class="sentence-cell">${renderCell(data.past?.negative)}</div>
-                <div class="sentence-cell">${renderCell(data.participle?.negative)}</div>
-                <div class="sentence-cell">${renderCell(data.future?.negative)}</div>
+                <div class="sentence-cell">${renderCell(data.presentContinuous?.negative)}</div>
+                <div class="sentence-cell">${renderCell(data.presentPerfect?.negative)}</div>
                 <div class="sentence-cell">${renderCell(data.goingTo?.negative)}</div>
 
                 <!-- Question Row -->
                 <div class="row-label">Pregunta <small>(?)</small></div>
-                <div class="sentence-cell">${renderCell(data.infinitive?.question)}</div>
+                <div class="sentence-cell">${renderCell(data.presentSimple?.question)}</div>
                 <div class="sentence-cell">${renderCell(data.past?.question)}</div>
-                <div class="sentence-cell">${renderCell(data.participle?.question)}</div>
-                <div class="sentence-cell">${renderCell(data.future?.question)}</div>
+                <div class="sentence-cell">${renderCell(data.presentContinuous?.question)}</div>
+                <div class="sentence-cell">${renderCell(data.presentPerfect?.question)}</div>
                 <div class="sentence-cell">${renderCell(data.goingTo?.question)}</div>
             </div>
         `;

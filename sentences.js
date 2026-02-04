@@ -1,557 +1,429 @@
 const VERB_SENTENCES = {
     "Be (am/is/are)": {
-        infinitive: {
-            positive: ["I want to <b>be</b> a doctor.", "You need to <b>be</b> careful.", "Try to <b>be</b> nice."],
-            negative: ["I don't want to <b>be</b> late.", "Don't <b>be</b> afraid.", "He doesn't want to <b>be</b> alone."],
-            question: ["Do you want to <b>be</b> happy?", "Will you <b>be</b> my friend?", "Can you <b>be</b> quiet?"]
-        },
-        past: {
-            positive: ["She <b>was</b> at the party.", "We <b>were</b> happy yesterday.", "I <b>was</b> tired last night."],
-            negative: ["She <b>wasn't</b> at the party.", "We <b>weren't</b> ready.", "It <b>wasn't</b> true."],
-            question: ["<b>Was</b> she at the party?", "<b>Were</b> they home?", "<b>Was</b> it cold?"]
-        },
-        participle: {
-            positive: ["They have <b>been</b> friends for years.", "I have <b>been</b> to Spain.", "She has <b>been</b> busy."],
-            negative: ["They haven't <b>been</b> friends since the fight.", "I haven't <b>been</b> there yet.", "It hasn't <b>been</b> easy."],
-            question: ["Have they <b>been</b> friends long?", "Have you ever <b>been</b> in love?", "Has she <b>been</b> sick?"]
-        },
-        future: {
-            positive: ["He will <b>be</b> here soon.", "It will <b>be</b> fun.", "I will <b>be</b> ready."],
-            negative: ["He won't <b>be</b> here soon.", "It won't <b>be</b> difficult.", "They won't <b>be</b> happy."],
-            question: ["Will he <b>be</b> here soon?", "Will it <b>be</b> okay?", "When will you <b>be</b> back?"]
-        },
-        goingTo: {
-            positive: ["I am <b>going to be</b> late.", "She is <b>going to be</b> a star.", "We are <b>going to be</b> friends."],
-            negative: ["I am not <b>going to be</b> late.", "It isn't <b>going to be</b> easy.", "They aren't <b>going to be</b> happy."],
-            question: ["Are you <b>going to be</b> okay?", "Is it <b>going to be</b> fun?", "When are you <b>going to be</b> ready?"]
-        }
+        presentSimple: { positive: "I <b>am</b> a doctor.", negative: "I <b>am not</b> late.", question: "<b>Are</b> you happy?" },
+        past: { positive: "She <b>was</b> at the party.", negative: "We <b>weren't</b> ready.", question: "<b>Was</b> it cold?" },
+        presentContinuous: { positive: "I am <b>being</b> careful.", negative: "I am not <b>being</b> rude.", question: "Are you <b>being</b> serious?" },
+        presentPerfect: { positive: "I have <b>been</b> there.", negative: "I haven't <b>been</b> ready.", question: "Have you <b>been</b> waiting?" },
+        goingTo: { positive: "I am <b>going to be</b> late.", negative: "It isn't <b>going to be</b> easy.", question: "Are you <b>going to be</b> okay?" }
     },
     "Become": {
-        infinitive: {
-            positive: ["He wants to <b>become</b> a teacher.", "Caterpillars <b>become</b> butterflies.", "Study hard to <b>become</b> smart."],
-            negative: ["He doesn't want to <b>become</b> a lawyer.", "It won't <b>become</b> a problem.", "Don't <b>become</b> impatient."],
-            question: ["Does he want to <b>become</b> a teacher?", "How do you <b>become</b> a member?", "When did you <b>become</b> interested?"]
-        },
-        past: {
-            positive: ["She <b>became</b> famous overnight.", "The sky <b>became</b> dark.", "He <b>became</b> angry."],
-            negative: ["She didn't <b>become</b> famous.", "It didn't <b>become</b> an issue.", "They never <b>became</b> friends."],
-            question: ["Did she <b>become</b> famous?", "When did he <b>become</b> king?", "Why did it <b>become</b> so cold?"]
-        },
-        participle: {
-            positive: ["They have <b>become</b> successful.", "It has <b>become</b> clear.", "She has <b>become</b> a strong leader."],
-            negative: ["They haven't <b>become</b> successful yet.", "It hasn't <b>become</b> worse.", "He hasn't <b>become</b> properly trained."],
-            question: ["Have they <b>become</b> successful?", "Has it <b>become</b> easier?", "What has <b>become</b> of him?"]
-        },
-        future: {
-            positive: ["It will <b>become</b> clear soon.", "She will <b>become</b> a doctor.", "You will <b>become</b> used to it."],
-            negative: ["It won't <b>become</b> clear immediately.", "He won't <b>become</b> a burden.", "This won't <b>become</b> a habit."],
-            question: ["Will it <b>become</b> clear?", "Will she <b>become</b> the boss?", "What will <b>become</b> of us?"]
-        },
-        goingTo: {
-            positive: ["I am <b>going to become</b> a pilot.", "It is <b>going to become</b> cold.", "She is <b>going to become</b> famous."],
-            negative: ["I am not <b>going to become</b> a doctor.", "It isn't <b>going to become</b> easier.", "He isn't <b>going to become</b> king."],
-            question: ["Are you <b>going to become</b> a member?", "Is it <b>going to become</b> dark?", "When is he <b>going to become</b> boss?"]
-        }
+        presentSimple: { positive: "He <b>becomes</b> angry easily.", negative: "It <b>doesn't become</b> easier.", question: "Does he <b>become</b> sad?" },
+        past: { positive: "She <b>became</b> famous.", negative: "It didn't <b>become</b> an issue.", question: "Did she <b>become</b> famous?" },
+        presentContinuous: { positive: "It is <b>becoming</b> clear.", negative: "He isn't <b>becoming</b> better.", question: "Is it <b>becoming</b> dark?" },
+        presentPerfect: { positive: "It has <b>become</b> clear.", negative: "He hasn't <b>become</b> a member.", question: "Has it <b>become</b> easier?" },
+        goingTo: { positive: "I am <b>going to become</b> a pilot.", negative: "It isn't <b>going to become</b> easier.", question: "Are you <b>going to become</b> a member?" }
     },
     "Begin": {
-        infinitive: {
-            positive: ["Let's <b>begin</b> the meeting.", "I want to <b>begin</b> a new hobby.", "Class will <b>begin</b> at 9."],
-            negative: ["Don't <b>begin</b> without me.", "I can't <b>begin</b> to explain.", "Please do not <b>begin</b> yet."],
-            question: ["When does the show <b>begin</b>?", "Shall we <b>begin</b>?", "Where does the story <b>begin</b>?"]
-        },
-        past: {
-            positive: ["It <b>began</b> to rain.", "The game <b>began</b> an hour ago.", "She <b>began</b> to cry."],
-            negative: ["It didn't <b>begin</b> on time.", "He didn't <b>begin</b> the work.", "The war never <b>began</b>."],
-            question: ["When did it <b>begin</b>?", "Who <b>began</b> the fight?", "Why did you <b>begin</b> late?"]
-        },
-        participle: {
-            positive: ["She has <b>begun</b> a new job.", "Winter has <b>begun</b>.", "They have <b>begun</b> construction."],
-            negative: ["She hasn't <b>begun</b> yet.", "The show hasn't <b>begun</b>.", "We haven't <b>begun</b> eating."],
-            question: ["Has she <b>begun</b> working?", "Has the movie <b>begun</b>?", "Have you <b>begun</b> your diet?"]
-        },
-        future: {
-            positive: ["We will <b>begin</b> soon.", "The tour will <b>begin</b> here.", "It will <b>begin</b> shortly."],
-            negative: ["We won't <b>begin</b> late.", "It won't <b>begin</b> until you arrive.", "The fun won't <b>begin</b> without you."],
-            question: ["Will we <b>begin</b> now?", "When will it <b>begin</b>?", "Will you <b>begin</b> today?"]
-        },
-        goingTo: {
-            positive: ["It is <b>going to begin</b> soon.", "We are <b>going to begin</b> the test.", "The movie is <b>going to begin</b>."],
-            negative: ["It isn't <b>going to begin</b> yet.", "We aren't <b>going to begin</b> without him.", "The show isn't <b>going to begin</b> late."],
-            question: ["Is it <b>going to begin</b>?", "When are we <b>going to begin</b>?", "Is the class <b>going to begin</b>?"]
-        }
+        presentSimple: { positive: "I <b>begin</b> work at 9.", negative: "It <b>doesn't begin</b> yet.", question: "Does the show <b>begin</b> now?" },
+        past: { positive: "It <b>began</b> to rain.", negative: "He didn't <b>begin</b> the work.", question: "When did it <b>begin</b>?" },
+        presentContinuous: { positive: "It is <b>beginning</b> to rain.", negative: "He isn't <b>beginning</b> properly.", question: "Is it <b>beginning</b> to snow?" },
+        presentPerfect: { positive: "It has <b>begun</b>.", negative: "He hasn't <b>begun</b> yet.", question: "Has it <b>begun</b>?" },
+        goingTo: { positive: "It is <b>going to begin</b> soon.", negative: "It isn't <b>going to begin</b> yet.", question: "Is it <b>going to begin</b>?" }
     },
     "Break": {
-        infinitive: {
-            positive: ["Be careful not to <b>break</b> it.", "I need to <b>break</b> the habit.", "Glass can <b>break</b> easily."],
-            negative: ["I won't <b>break</b> my promise.", "Don't <b>break</b> the rules.", "Try not to <b>break</b> anything."],
-            question: ["Did you <b>break</b> the glass?", "Can you <b>break</b> a dollar?", "Why did it <b>break</b>?"]
-        },
-        past: {
-            positive: ["He <b>broke</b> his leg skiing.", "She <b>broke</b> the record.", "The machine <b>broke</b> down."],
-            negative: ["He didn't <b>break</b> the rules.", "I didn't <b>break</b> it.", "It never <b>broke</b> before."],
-            question: ["Who <b>broke</b> the window?", "How did you <b>break</b> your arm?", "What <b>broke</b>?"]
-        },
-        participle: {
-            positive: ["The vase is <b>broken</b>.", "He has <b>broken</b> the law.", "My heart is <b>broken</b>."],
-            negative: ["It hasn't <b>broken</b> completely.", "She hasn't <b>broken</b> her silence.", "They haven't <b>broken</b> up."],
-            question: ["Is the lock <b>broken</b>?", "Have you <b>broken</b> a bone?", "Has the fever <b>broken</b>?"]
-        },
-        future: {
-            positive: ["It will <b>break</b> if you drop it.", "She will <b>break</b> the news.", "The storm will <b>break</b> soon."],
-            negative: ["It won't <b>break</b> easily.", "I won't <b>break</b> your trust.", "The rope won't <b>break</b>."],
-            question: ["Will the chain <b>break</b>?", "Will it <b>break</b> under pressure?", "When will dawn <b>break</b>?"]
-        },
-        goingTo: {
-            positive: ["It is <b>going to break</b>.", "You are <b>going to break</b> it.", "She is <b>going to break</b> the record."],
-            negative: ["It isn't <b>going to break</b>.", "I am not <b>going to break</b> my promise.", "He isn't <b>going to break</b> the rules."],
-            question: ["Is it <b>going to break</b>?", "Are you <b>going to break</b> up?", "Who is <b>going to break</b> the news?"]
-        }
+        presentSimple: { positive: "Glass <b>breaks</b> easily.", negative: "I <b>don't break</b> promises.", question: "Does it <b>break</b>?" },
+        past: { positive: "He <b>broke</b> his leg.", negative: "I didn't <b>break</b> it.", question: "Who <b>broke</b> the window?" },
+        presentContinuous: { positive: "He is <b>breaking</b> the rules.", negative: "It isn't <b>breaking</b>.", question: "Why are you <b>breaking</b> it?" },
+        presentPerfect: { positive: "He has <b>broken</b> the glass.", negative: "I haven't <b>broken</b> it.", question: "Have you <b>broken</b> the law?" },
+        goingTo: { positive: "It is <b>going to break</b>.", negative: "I am not <b>going to break</b> it.", question: "Is it <b>going to break</b>?" }
     },
     "Bring": {
-        infinitive: {
-            positive: ["Please <b>bring</b> me a menu.", "Can you <b>bring</b> water?", "Remember to <b>bring</b> your ID."],
-            negative: ["Don't <b>bring</b> any food.", "I didn't <b>bring</b> my wallet.", "You shouldn't <b>bring</b> a dog."],
-            question: ["Can you <b>bring</b> a friend?", "What should I <b>bring</b>?", "Did you <b>bring</b> it?"]
-        },
-        past: {
-            positive: ["She <b>brought</b> a cake.", "He <b>brought</b> bad news.", "They <b>brought</b> gifts."],
-            negative: ["She didn't <b>bring</b> enough.", "I didn't <b>bring</b> an umbrella.", "He never <b>brought</b> it back."],
-            question: ["What did you <b>bring</b>?", "Who <b>brought</b> this?", "Why did she <b>bring</b> him?"]
-        },
-        participle: {
-            positive: ["I have <b>brought</b> the keys.", "She has <b>brought</b> joy.", "We have <b>brought</b> snacks."],
-            negative: ["I haven't <b>brought</b> my car.", "They haven't <b>brought</b> the papers.", "He hasn't <b>brought</b> it up."],
-            question: ["Have you <b>brought</b> wine?", "What have you <b>brought</b>?", "Has he <b>brought</b> the money?"]
-        },
-        future: {
-            positive: ["I will <b>bring</b> it tomorrow.", "He will <b>bring</b> the car.", "They will <b>bring</b> help."],
-            negative: ["I won't <b>bring</b> trouble.", "She won't <b>bring</b> the kids.", "It won't <b>bring</b> happiness."],
-            question: ["Will you <b>bring</b> it?", "What will you <b>bring</b>?", "Will they <b>bring</b> dessert?"]
-        }
+        presentSimple: { positive: "I <b>bring</b> lunch every day.", negative: "He <b>doesn't bring</b> friends.", question: "Do you <b>bring</b> water?" },
+        past: { positive: "She <b>brought</b> a cake.", negative: "I didn't <b>bring</b> an umbrella.", question: "What did you <b>bring</b>?" },
+        presentContinuous: { positive: "I am <b>bringing</b> the drinks.", negative: "He isn't <b>bringing</b> food.", question: "Are you <b>bringing</b> friends?" },
+        presentPerfect: { positive: "I have <b>brought</b> it.", negative: "He hasn't <b>brought</b> snacks.", question: "Have you <b>brought</b> money?" },
+        goingTo: { positive: "I am <b>going to bring</b> dessert.", negative: "I am not <b>going to bring</b> it.", question: "Are you <b>going to bring</b> him?" }
     },
     "Build": {
-        infinitive: {
-            positive: ["They plan to <b>build</b> a house.", "We need to <b>build</b> trust.", "Let's <b>build</b> a fire."],
-            negative: ["We cannot <b>build</b> here.", "Don't <b>build</b> your hopes up.", "They won't <b>build</b> a wall."],
-            question: ["Where will you <b>build</b> it?", "Can you <b>build</b> this?", "How do you <b>build</b> muscle?"]
-        },
-        past: {
-            positive: ["He <b>built</b> a robot.", "Romans <b>built</b> roads.", "She <b>built</b> a career."],
-            negative: ["He didn't <b>build</b> the fence.", "They didn't <b>build</b> it clearly.", "Rome wasn't <b>built</b> in a day."],
-            question: ["Who <b>built</b> this bridge?", "When did they <b>build</b> it?", "Why did he <b>build</b> that?"]
-        },
-        participle: {
-            positive: ["They have <b>built</b> a strong team.", "He has <b>built</b> a fortune.", "We have <b>built</b> a model."],
-            negative: ["They haven't <b>built</b> it yet.", "She hasn't <b>built</b> confidence.", "Nothing has been <b>built</b>."],
-            question: ["Have they <b>built</b> the wall?", "Has he <b>built</b> a reputation?", "What have you <b>built</b>?"]
-        },
-        future: {
-            positive: ["We will <b>build</b> a new school.", "It will <b>build</b> character.", "They will <b>build</b> faster."],
-            negative: ["We won't <b>build</b> this year.", "He won't <b>build</b> it alone.", "It won't <b>build</b> itself."],
-            question: ["Will they <b>build</b> a park?", "When will you <b>build</b>?", "What will you <b>build</b> next?"]
-        },
-        goingTo: {
-            positive: ["We are <b>going to build</b> a shed.", "He is <b>going to build</b> a career.", "They are <b>going to build</b> bridges."],
-            negative: ["We are not <b>going to build</b> it.", "He isn't <b>going to build</b> that.", "They aren't <b>going to build</b>."],
-            question: ["Are you <b>going to build</b> a house?", "Is he <b>going to build</b> a robot?", "When are they <b>going to build</b>?"]
-        }
+        presentSimple: { positive: "They <b>build</b> houses here.", negative: "We <b>don't build</b> walls.", question: "Do you <b>build</b> models?" },
+        past: { positive: "He <b>built</b> a robot.", negative: "He didn't <b>build</b> it.", question: "Who <b>built</b> this?" },
+        presentContinuous: { positive: "They are <b>building</b> a bridge.", negative: "She isn't <b>building</b> it.", question: "What are you <b>building</b>?" },
+        presentPerfect: { positive: "They have <b>built</b> a house.", negative: "We haven't <b>built</b> it.", question: "Have you <b>built</b> this?" },
+        goingTo: { positive: "We are <b>going to build</b> a shed.", negative: "He isn't <b>going to build</b>.", question: "Are you <b>going to build</b> it?" }
     },
     "Buy": {
-        infinitive: {
-            positive: ["I need to <b>buy</b> groceries.", "Let's <b>buy</b> a gift.", "I want to <b>buy</b> a house."],
-            negative: ["I don't want to <b>buy</b> it.", "Don't <b>buy</b> that one.", "We can't <b>buy</b> more."],
-            question: ["What did you <b>buy</b>?", "Where can I <b>buy</b> tickets?", "Did you <b>buy</b> milk?"]
-        },
-        past: {
-            positive: ["She <b>bought</b> a new dress.", "I <b>bought</b> a computer.", "They <b>bought</b> lunch."],
-            negative: ["She didn't <b>buy</b> anything.", "He didn't <b>buy</b> the lie.", "We didn't <b>buy</b> tickets."],
-            question: ["Where did she <b>buy</b> that?", "Who <b>bought</b> the drinks?", "Why did you <b>buy</b> it?"]
-        },
-        participle: {
-            positive: ["We have <b>bought</b> tickets.", "He has <b>bought</b> milk.", "She has <b>bought</b> a car."],
-            negative: ["We haven't <b>bought</b> them.", "I haven't <b>bought</b> it yet.", "They haven't <b>bought</b> in."],
-            question: ["Have you <b>bought</b> the gift?", "Has she <b>bought</b> the house?", "What have they <b>bought</b>?"]
-        },
-        future: {
-            positive: ["I will <b>buy</b> dinner.", "We will <b>buy</b> it later.", "She will <b>buy</b> a dress."],
-            negative: ["I won't <b>buy</b> that car.", "He won't <b>buy</b> it.", "They won't <b>buy</b> anything."],
-            question: ["Will you <b>buy</b> me a drink?", "What will you <b>buy</b>?", "When will you <b>buy</b> it?"]
-        },
-        goingTo: {
-            positive: ["I am <b>going to buy</b> a bike.", "She is <b>going to buy</b> food.", "We are <b>going to buy</b> tickets."],
-            negative: ["I am not <b>going to buy</b> it.", "She isn't <b>going to buy</b> clothes.", "We aren't <b>going to buy</b> anything."],
-            question: ["Are you <b>going to buy</b> that?", "Is she <b>going to buy</b> a car?", "What are you <b>going to buy</b>?"]
-        }
+        presentSimple: { positive: "I <b>buy</b> groceries weekly.", negative: "She <b>doesn't buy</b> candy.", question: "Do you <b>buy</b> milk?" },
+        past: { positive: "She <b>bought</b> a dress.", negative: "He didn't <b>buy</b> it.", question: "Who <b>bought</b> this?" },
+        presentContinuous: { positive: "I am <b>buying</b> tickets.", negative: "We aren't <b>buying</b> a house.", question: "Are you <b>buying</b> it?" },
+        presentPerfect: { positive: "I have <b>bought</b> a car.", negative: "She hasn't <b>bought</b> anything.", question: "Have you <b>bought</b> tickets?" },
+        goingTo: { positive: "I am <b>going to buy</b> a car.", negative: "He isn't <b>going to buy</b> it.", question: "Are you <b>going to buy</b> lunch?" }
     },
-    "Come": {
-        infinitive: { positive: ["Please <b>come</b> in.", "You should <b>come</b> visit.", "Can you <b>come</b>?"], negative: ["Don't <b>come</b> closer.", "I can't <b>come</b> today.", "He won't <b>come</b>."], question: ["Can you <b>come</b> over?", "When will you <b>come</b>?", "Why did you <b>come</b>?"] },
-        past: { positive: ["He <b>came</b> home late.", "She <b>came</b> to see me.", "It <b>came</b> true."], negative: ["He didn't <b>come</b> to the party.", "Nobody <b>came</b>.", "It didn't <b>come</b> in time."], question: ["Why did he <b>come</b>?", "Who <b>came</b> with you?", "When did they <b>come</b>?"] },
-        participle: { positive: ["She has <b>come</b> a long way.", "Summer has <b>come</b>.", "They have <b>come</b> back."], negative: ["She hasn't <b>come</b> back.", "He hasn't <b>come</b> home.", "It hasn't <b>come</b> yet."], question: ["Has the mail <b>come</b>?", "Have they <b>come</b>?", "Has he <b>come</b> to visit?"] },
-        future: { positive: ["Winter will <b>come</b> soon.", "He will <b>come</b> tomorrow.", "Dreams will <b>come</b> true."], negative: ["It won't <b>come</b> easy.", "She won't <b>come</b> alone.", "They won't <b>come</b> back."], question: ["Will she <b>come</b> tomorrow?", "When will it <b>come</b>?", "Will you <b>come</b>?"] },
-        goingTo: { positive: ["He is <b>going to come</b> over.", "Winter is <b>going to come</b>.", "She is <b>going to come</b> later."], negative: ["He isn't <b>going to come</b>.", "It isn't <b>going to come</b> true.", "They aren't <b>going to come</b>."], question: ["Is he <b>going to come</b>?", "When are you <b>going to come</b>?", "Are they <b>going to come</b>?"] }
-    },
-    "Cost": {
-        infinitive: { positive: ["It may <b>cost</b> a lot.", "Quality doesn't have to <b>cost</b> more.", "Does it <b>cost</b> money?"], negative: ["It shouldn't <b>cost</b> much.", "It won't <b>cost</b> a penny.", "Dreams don't <b>cost</b> anything."], question: ["How much does it <b>cost</b>?", "Does it <b>cost</b> extra?", "What will it <b>cost</b>?"] },
-        past: { positive: ["The car <b>cost</b> a fortune.", "It <b>cost</b> five dollars.", "The mistake <b>cost</b> him his job."], negative: ["It didn't <b>cost</b> a thing.", "The ticket didn't <b>cost</b> much.", "It <b>cost</b> nothing."], question: ["How much did it <b>cost</b>?", "Did it <b>cost</b> too much?", "What did it <b>cost</b>?"] },
-        participle: { positive: ["It has <b>cost</b> us time.", "The war has <b>cost</b> many lives.", "It has <b>cost</b> a lot."], negative: ["It hasn't <b>cost</b> too much.", "It hasn't <b>cost</b> me anything.", "Victory hasn't <b>cost</b> enough."], question: ["Has it <b>cost</b> you dearly?", "How much has it <b>cost</b>?", "What has it <b>cost</b>?"] },
-        future: { positive: ["It will <b>cost</b> $50.", "This will <b>cost</b> you.", "Repair will <b>cost</b> more."], negative: ["It won't <b>cost</b> extra.", "It won't <b>cost</b> a dime.", "Advice won't <b>cost</b> you."], question: ["Will it <b>cost</b> more?", "How much will it <b>cost</b>?", "Will it <b>cost</b> time?"] },
-        goingTo: { positive: ["It is <b>going to cost</b> a lot.", "Success is <b>going to cost</b> effort.", "Repairs are <b>going to cost</b> more."], negative: ["It isn't <b>going to cost</b> much.", "This isn't <b>going to cost</b> you.", "Advice isn't <b>going to cost</b>."], question: ["Is it <b>going to cost</b> money?", "How much is it <b>going to cost</b>?", "What is it <b>going to cost</b>?"] }
-    },
-    "Cut": {
-        infinitive: { positive: ["I need to <b>cut</b> the paper.", "Can you <b>cut</b> the cake?", "Use knife to <b>cut</b>."], negative: ["Don't <b>cut</b> your finger.", "I cannot <b>cut</b> it.", "Do not <b>cut</b> in line."], question: ["Can you <b>cut</b> this?", "Will it <b>cut</b>?", "How do you <b>cut</b> it?"] },
-        past: { positive: ["She <b>cut</b> her hair.", "He <b>cut</b> his hand.", "I <b>cut</b> the rope."], negative: ["She didn't <b>cut</b> the cake.", "He didn't <b>cut</b> himself.", "We didn't <b>cut</b> class."], question: ["Who <b>cut</b> the cheese?", "Did you <b>cut</b> yourself?", "Why did you <b>cut</b> it?"] },
-        participle: { positive: ["I have <b>cut</b> relations.", "She has <b>cut</b> expenses.", "He has <b>cut</b> the line."], negative: ["I haven't <b>cut</b> it yet.", "We haven't <b>cut</b> costs.", "She hasn't <b>cut</b> loose."], question: ["Have you <b>cut</b> the grass?", "Has he <b>cut</b> his hair?", "Have they <b>cut</b> funding?"] },
-        future: { positive: ["Only one will <b>cut</b> it.", "I will <b>cut</b> it later.", "He will <b>cut</b> the ribbon."], negative: ["This won't <b>cut</b> it.", "I won't <b>cut</b> my hair.", "She won't <b>cut</b> corners."], question: ["Will he <b>cut</b> the wire?", "Will you <b>cut</b> it out?", "When will you <b>cut</b> it?"] },
-        goingTo: { positive: ["He is <b>going to cut</b> the grass.", "She is <b>going to cut</b> her hair.", "We are <b>going to cut</b> costs."], negative: ["He isn't <b>going to cut</b> it.", "I am not <b>going to cut</b> myself.", "She isn't <b>going to cut</b> class."], question: ["Are you <b>going to cut</b> the cake?", "Who is <b>going to cut</b> it?", "Is only one person <b>going to cut</b>?"] }
+    "Catch": {
+        presentSimple: { positive: "I <b>catch</b> the bus at 8.", negative: "He <b>doesn't catch</b> colds.", question: "Do you <b>catch</b> fish?" },
+        past: { positive: "He <b>caught</b> the ball.", negative: "I didn't <b>catch</b> that.", question: "Did you <b>catch</b> it?" },
+        presentContinuous: { positive: "He is <b>catching</b> a cold.", negative: "She isn't <b>catching</b> anything.", question: "Are you <b>catching</b> the bus?" },
+        presentPerfect: { positive: "I have <b>caught</b> a fish.", negative: "He hasn't <b>caught</b> the bus.", question: "Have you <b>caught</b> it?" },
+        goingTo: { positive: "I am <b>going to catch</b> you.", negative: "He isn't <b>going to catch</b> it.", question: "Are you <b>going to catch</b> the bus?" }
     },
     "Choose": {
-        infinitive: { positive: ["You must <b>choose</b> a side.", "I have to <b>choose</b> one.", "Help me <b>choose</b>."], negative: ["I cannot <b>choose</b> for you.", "Don't <b>choose</b> the wrong one.", "I didn't <b>choose</b> this."], question: ["Which one will you <b>choose</b>?", "Did you <b>choose</b>?", "How do I <b>choose</b>?"] },
-        past: { positive: ["He <b>chose</b> the red one.", "She <b>chose</b> to stay.", "We <b>chose</b> him."], negative: ["He didn't <b>choose</b> wisely.", "I didn't <b>choose</b> that.", "They didn't <b>choose</b> me."], question: ["Why did you <b>choose</b> that?", "Who <b>chose</b> this?", "When did she <b>choose</b>?"] },
-        participle: { positive: ["They have <b>chosen</b> a leader.", "I have <b>chosen</b> my path.", "She has <b>chosen</b> well."], negative: ["They haven't <b>chosen</b> yet.", "We haven't <b>chosen</b> a name.", "He hasn't <b>chosen</b>."], question: ["Have you <b>chosen</b>?", "Who was <b>chosen</b>?", "Has she <b>chosen</b> a dress?"] },
-        future: { positive: ["I will <b>choose</b> the best.", "She will <b>choose</b> soon.", "They will <b>choose</b> you."], negative: ["I won't <b>choose</b> him.", "We won't <b>choose</b> sides.", "He won't <b>choose</b>."], question: ["Will she <b>choose</b> me?", "Who will you <b>choose</b>?", "When will they <b>choose</b>?"] },
-        goingTo: { positive: ["I am <b>going to choose</b> you.", "He is <b>going to choose</b> wisely.", "We are <b>going to choose</b> a path."], negative: ["I am not <b>going to choose</b>.", "He isn't <b>going to choose</b> sides.", "We aren't <b>going to choose</b> now."], question: ["Are you <b>going to choose</b>?", "Who is <b>going to choose</b>?", "When are they <b>going to choose</b>?"] }
+        presentSimple: { positive: "I <b>choose</b> red.", negative: "She <b>doesn't choose</b> wisely.", question: "Do you <b>choose</b> this?" },
+        past: { positive: "She <b>chose</b> him.", negative: "I didn't <b>choose</b> this.", question: "Who <b>chose</b> the movie?" },
+        presentContinuous: { positive: "I am <b>choosing</b> a gift.", negative: "He isn't <b>choosing</b> well.", question: "Are you <b>choosing</b> sides?" },
+        presentPerfect: { positive: "I have <b>chosen</b>.", negative: "She hasn't <b>chosen</b> yet.", question: "Have you <b>chosen</b> one?" },
+        goingTo: { positive: "I am <b>going to choose</b> now.", negative: "I am not <b>going to choose</b>.", question: "Are you <b>going to choose</b>?" }
+    },
+    "Come": {
+        presentSimple: { positive: "He <b>comes</b> early.", negative: "She <b>doesn't come</b> often.", question: "Do you <b>come</b> here?" },
+        past: { positive: "He <b>came</b> home late.", negative: "They didn't <b>come</b>.", question: "Who <b>came</b> to the party?" },
+        presentContinuous: { positive: "She is <b>coming</b> now.", negative: "He isn't <b>coming</b> back.", question: "Are you <b>coming</b>?" },
+        presentPerfect: { positive: "He has <b>come</b> home.", negative: "They haven't <b>come</b> yet.", question: "Has she <b>come</b> back?" },
+        goingTo: { positive: "He is <b>going to come</b>.", negative: "I am not <b>going to come</b>.", question: "Are you <b>going to come</b>?" }
+    },
+    "Cost": {
+        presentSimple: { positive: "It <b>costs</b> a lot.", negative: "It <b>doesn't cost</b> much.", question: "Does it <b>cost</b> money?" },
+        past: { positive: "It <b>cost</b> $50.", negative: "It didn't <b>cost</b> a thing.", question: "Did it <b>cost</b> too much?" },
+        presentContinuous: { positive: "It is <b>costing</b> time.", negative: "It isn't <b>costing</b> extra.", question: "Is it <b>costing</b> money?" },
+        presentPerfect: { positive: "It has <b>cost</b> a fortune.", negative: "It hasn't <b>cost</b> much.", question: "Has it <b>cost</b> you?" },
+        goingTo: { positive: "It is <b>going to cost</b> money.", negative: "It isn't <b>going to cost</b> much.", question: "Is it <b>going to cost</b> a lot?" }
+    },
+    "Cut": {
+        presentSimple: { positive: "This knife <b>cuts</b> well.", negative: "It <b>doesn't cut</b>.", question: "Does it <b>cut</b>?" },
+        past: { positive: "He <b>cut</b> his finger.", negative: "She didn't <b>cut</b> it.", question: "Who <b>cut</b> the cake?" },
+        presentContinuous: { positive: "I am <b>cutting</b> paper.", negative: "He isn't <b>cutting</b> grass.", question: "Are you <b>cutting</b> it?" },
+        presentPerfect: { positive: "I have <b>cut</b> the paper.", negative: "He hasn't <b>cut</b> it.", question: "Have you <b>cut</b> yourself?" },
+        goingTo: { positive: "I am <b>going to cut</b> it.", negative: "He isn't <b>going to cut</b>.", question: "Are you <b>going to cut</b> the cake?" }
     },
     "Do": {
-        infinitive: { positive: ["I want to <b>do</b> my best.", "Let's <b>do</b> this.", "I have work to <b>do</b>."], negative: ["I don't want to <b>do</b> it.", "Don't <b>do</b> that.", "We can't <b>do</b> anything."], question: ["What do you want to <b>do</b>?", "Can you <b>do</b> me a favor?", "How do you <b>do</b>?"] },
-        past: { positive: ["She <b>did</b> her homework.", "I <b>did</b> the dishes.", "He <b>did</b> a great job."], negative: ["She didn't <b>do</b> the dishes.", "I didn't <b>do</b> it.", "They didn't <b>do</b> well."], question: ["How did you <b>do</b> that?", "What did he <b>do</b>?", "Did you <b>do</b> your part?"] },
-        participle: { positive: ["We have <b>done</b> it all.", "She has <b>done</b> enough.", "It is <b>done</b>."], negative: ["We haven't <b>done</b> enough.", "I haven't <b>done</b> my best.", "Nothing has been <b>done</b>."], question: ["Have you <b>done</b> your job?", "What have they <b>done</b>?", "Has she <b>done</b> it?"] },
-        future: { positive: ["He will <b>do</b> it later.", "I will <b>do</b> my homework.", "We will <b>do</b> better."], negative: ["He won't <b>do</b> that.", "I won't <b>do</b> it again.", "They won't <b>do</b> business."], question: ["Will you <b>do</b> me a favor?", "What will you <b>do</b>?", "Will it <b>do</b>?"] },
-        goingTo: { positive: ["I am <b>going to do</b> it.", "She is <b>going to do</b> her best.", "We are <b>going to do</b> great things."], negative: ["I am not <b>going to do</b> that.", "She isn't <b>going to do</b> homework.", "We aren't <b>going to do</b> it."], question: ["Are you <b>going to do</b> well?", "What are you <b>going to do</b>?", "Who is <b>going to do</b> it?"] }
+        presentSimple: { positive: "I <b>do</b> my best.", negative: "He <b>doesn't do</b> it.", question: "Do you <b>do</b> yoga?" },
+        past: { positive: "She <b>did</b> the work.", negative: "I didn't <b>do</b> it.", question: "Did you <b>do</b> that?" },
+        presentContinuous: { positive: "I am <b>doing</b> dishes.", negative: "He isn't <b>doing</b> anything.", question: "What are you <b>doing</b>?" },
+        presentPerfect: { positive: "I have <b>done</b> it.", negative: "He hasn't <b>done</b> the work.", question: "Have you <b>done</b> this?" },
+        goingTo: { positive: "I am <b>going to do</b> it.", negative: "She isn't <b>going to do</b> it.", question: "Are you <b>going to do</b> work?" }
     },
     "Draw": {
-        infinitive: { positive: ["I love to <b>draw</b> animals.", "Can you <b>draw</b> this?", "I want to <b>draw</b>."], negative: ["I can't <b>draw</b> well.", "Don't <b>draw</b> on the wall.", "He doesn't <b>draw</b>."], question: ["Can you <b>draw</b> this?", "Do you like to <b>draw</b>?", "What do you <b>draw</b>?"] },
-        past: { positive: ["He <b>drew</b> a map.", "She <b>drew</b> a picture.", "I <b>drew</b> a circle."], negative: ["He didn't <b>draw</b> anything.", "I didn't <b>draw</b> well.", "She didn't <b>draw</b> it."], question: ["Who <b>drew</b> this picture?", "What did you <b>draw</b>?", "When did he <b>draw</b> this?"] },
-        participle: { positive: ["She has <b>drawn</b> a crowd.", "I have <b>drawn</b> a blank.", "He has <b>drawn</b> plans."], negative: ["She hasn't <b>drawn</b> in years.", "They haven't <b>drawn</b> conclusions.", "I haven't <b>drawn</b> it."], question: ["Have you <b>drawn</b> the line?", "Has she <b>drawn</b> before?", "What have you <b>drawn</b>?"] },
-        future: { positive: ["I will <b>draw</b> a conclusion.", "He will <b>draw</b> a card.", "She will <b>draw</b> you."], negative: ["I won't <b>draw</b> blood.", "He won't <b>draw</b> attention.", "We won't <b>draw</b>."], question: ["Will you <b>draw</b> a card?", "What will you <b>draw</b>?", "Will he <b>draw</b> it?"] },
-        goingTo: { positive: ["I am <b>going to draw</b> a tree.", "He is <b>going to draw</b> attention.", "She is <b>going to draw</b> well."], negative: ["I am not <b>going to draw</b> money.", "He isn't <b>going to draw</b> today.", "She isn't <b>going to draw</b> it."], question: ["Are you <b>going to draw</b>?", "What are you <b>going to draw</b>?", "Is he <b>going to draw</b>?"] }
+        presentSimple: { positive: "I <b>draw</b> cartoons.", negative: "He <b>doesn't draw</b> well.", question: "Do you <b>draw</b>?" },
+        past: { positive: "She <b>drew</b> a map.", negative: "I didn't <b>draw</b> it.", question: "Who <b>drew</b> this?" },
+        presentContinuous: { positive: "He is <b>drawing</b> a car.", negative: "I am not <b>drawing</b>.", question: "Are you <b>drawing</b>?" },
+        presentPerfect: { positive: "I have <b>drawn</b> a circle.", negative: "He hasn't <b>drawn</b> anything.", question: "Have you <b>drawn</b> this?" },
+        goingTo: { positive: "I am <b>going to draw</b>.", negative: "He isn't <b>going to draw</b>.", question: "Are you <b>going to draw</b> this?" }
     },
     "Drink": {
-        infinitive: { positive: ["You must <b>drink</b> water.", "I want to <b>drink</b> coffee.", "Let's <b>drink</b> to that."], negative: ["Don't <b>drink</b> and drive.", "I don't <b>drink</b> alcohol.", "She doesn't <b>drink</b> soda."], question: ["What do you want to <b>drink</b>?", "Can we <b>drink</b> here?", "Do you <b>drink</b> tea?"] },
-        past: { positive: ["She <b>drank</b> some tea.", "He <b>drank</b> a whole bottle.", "We <b>drank</b> wine."], negative: ["She didn't <b>drink</b> soda.", "He didn't <b>drink</b> much.", "I didn't <b>drink</b> the water."], question: ["Who <b>drank</b> my milk?", "What did you <b>drink</b>?", "Why did he <b>drink</b> that?"] },
-        participle: { positive: ["He has <b>drunk</b> too much.", "I have <b>drunk</b> enough.", "She has <b>drunk</b> the juice."], negative: ["He hasn't <b>drunk</b> coffee.", "We haven't <b>drunk</b> yet during the trip.", "They haven't <b>drunk</b> anything."], question: ["Have you <b>drunk</b> enough?", "Has he <b>drunk</b> all of it?", "Have they <b>drunk</b> the wine?"] },
-        future: { positive: ["I will <b>drink</b> with you.", "We will <b>drink</b> champagne.", "He will <b>drink</b> slowly."], negative: ["I won't <b>drink</b> that.", "She won't <b>drink</b> tonight.", "They won't <b>drink</b> here."], question: ["Will you <b>drink</b> this?", "What will you <b>drink</b>?", "Will they <b>drink</b> punch?"] },
-        goingTo: { positive: ["I am <b>going to drink</b> water.", "He is <b>going to drink</b> beer.", "We are <b>going to drink</b> tea."], negative: ["I am not <b>going to drink</b> soda.", "He isn't <b>going to drink</b> it.", "We aren't <b>going to drink</b>."], question: ["Are you <b>going to drink</b>?", "What is he <b>going to drink</b>?", "When are we <b>going to drink</b>?"] }
+        presentSimple: { positive: "I <b>drink</b> water.", negative: "She <b>doesn't drink</b> soda.", question: "Do you <b>drink</b> tea?" },
+        past: { positive: "He <b>drank</b> milk.", negative: "I didn't <b>drink</b> it.", question: "Who <b>drank</b> the juice?" },
+        presentContinuous: { positive: "I am <b>drinking</b> coffee.", negative: "He isn't <b>drinking</b>.", question: "Are you <b>drinking</b>?" },
+        presentPerfect: { positive: "I have <b>drunk</b> enough.", negative: "She hasn't <b>drunk</b> wine.", question: "Have you <b>drunk</b> it?" },
+        goingTo: { positive: "I am <b>going to drink</b> water.", negative: "She isn't <b>going to drink</b>.", question: "Are you <b>going to drink</b>?" }
     },
     "Drive": {
-        infinitive: { positive: ["I want to <b>drive</b> a fast car.", "Can you <b>drive</b> the truck?", "It's safe to <b>drive</b>."], negative: ["I don't know how to <b>drive</b>.", "Don't <b>drive</b> tired.", "He can't <b>drive</b> stick."], question: ["Can you <b>drive</b> manual?", "Do you <b>drive</b> often?", "Will you <b>drive</b>?"] },
-        past: { positive: ["We <b>drove</b> all night.", "She <b>drove</b> home safely.", "He <b>drove</b> a taxi."], negative: ["We didn't <b>drive</b> fast.", "I didn't <b>drive</b> there.", "He didn't <b>drive</b> the bus."], question: ["Where did you <b>drive</b>?", "Who <b>drove</b> the car?", "Why did you <b>drive</b> so far?"] },
-        participle: { positive: ["I have <b>driven</b> this truck.", "She has <b>driven</b> miles.", "We have <b>driven</b> past it."], negative: ["I haven't <b>driven</b> before.", "He hasn't <b>driven</b> in snow.", "They haven't <b>driven</b> a van."], question: ["Have you ever <b>driven</b>?", "Has she <b>driven</b> this?", "Who has <b>driven</b> my car?"] },
-        future: { positive: ["He will <b>drive</b> us there.", "I will <b>drive</b> next.", "They will <b>drive</b> carefully."], negative: ["He won't <b>drive</b> safely.", "I won't <b>drive</b> at night.", "She won't <b>drive</b> that car."], question: ["Will you <b>drive</b> me home?", "Who will <b>drive</b>?", "When will we <b>drive</b> back?"] },
-        goingTo: { positive: ["I am <b>going to drive</b> home.", "She is <b>going to drive</b> fast.", "We are <b>going to drive</b> there."], negative: ["I am not <b>going to drive</b>.", "She isn't <b>going to drive</b> the bus.", "We aren't <b>going to drive</b> far."], question: ["Are you <b>going to drive</b>?", "Who is <b>going to drive</b>?", "When are you <b>going to drive</b>?"] }
+        presentSimple: { positive: "I <b>drive</b> to work.", negative: "He <b>doesn't drive</b>.", question: "Do you <b>drive</b>?" },
+        past: { positive: "She <b>drove</b> home.", negative: "We didn't <b>drive</b> fast.", question: "Who <b>drove</b>?" },
+        presentContinuous: { positive: "I am <b>driving</b> now.", negative: "He isn't <b>driving</b>.", question: "Are you <b>driving</b>?" },
+        presentPerfect: { positive: "I have <b>driven</b> this car.", negative: "She hasn't <b>driven</b> yet.", question: "Have you <b>driven</b> before?" },
+        goingTo: { positive: "I am <b>going to drive</b>.", negative: "She isn't <b>going to drive</b>.", question: "Are you <b>going to drive</b>?" }
     },
     "Eat": {
-        infinitive: { positive: ["It's time to <b>eat</b>.", "I love to <b>eat</b> pizza.", "We must <b>eat</b>."], negative: ["Don't <b>eat</b> too fast.", "I can't <b>eat</b> this.", "He doesn't <b>eat</b> meat."], question: ["What did you <b>eat</b>?", "When do we <b>eat</b>?", "Do you want to <b>eat</b>?"] },
-        past: { positive: ["I <b>ate</b> a burger.", "We <b>ate</b> dinner late.", "She <b>ate</b> it all."], negative: ["I didn't <b>eat</b> lunch.", "He didn't <b>eat</b> his veggies.", "They didn't <b>eat</b> home."], question: ["Who <b>ate</b> the cake?", "What did you <b>eat</b>?", "Why did she <b>eat</b> that?"] },
-        participle: { positive: ["She has <b>eaten</b> already.", "We have <b>eaten</b> too much.", "I have <b>eaten</b> there."], negative: ["She hasn't <b>eaten</b> yet.", "I haven't <b>eaten</b> all day.", "They haven't <b>eaten</b> breakfast."], question: ["Have you <b>eaten</b>?", "Has everyone <b>eaten</b>?", "What have you <b>eaten</b>?"] },
-        future: { positive: ["We will <b>eat</b> at 6.", "I will <b>eat</b> spicy food.", "They will <b>eat</b> happily."], negative: ["We won't <b>eat</b> out.", "I won't <b>eat</b> sugar.", "He won't <b>eat</b> fish."], question: ["Will you <b>eat</b> your veggies?", "Where will we <b>eat</b>?", "What will they <b>eat</b>?"] },
-        goingTo: { positive: ["I am <b>going to eat</b> now.", "She is <b>going to eat</b> sushi.", "We are <b>going to eat</b> out."], negative: ["I am not <b>going to eat</b> that.", "He isn't <b>going to eat</b> veggies.", "We aren't <b>going to eat</b> late."], question: ["Are you <b>going to eat</b>?", "What are you <b>going to eat</b>?", "Is she <b>going to eat</b>?"] }
+        presentSimple: { positive: "I <b>eat</b> pizza.", negative: "He <b>doesn't eat</b> meat.", question: "Do you <b>eat</b> fish?" },
+        past: { positive: "We <b>ate</b> dinner.", negative: "I didn't <b>eat</b> much.", question: "What did you <b>eat</b>?" },
+        presentContinuous: { positive: "I am <b>eating</b> now.", negative: "She isn't <b>eating</b>.", question: "Are you <b>eating</b>?" },
+        presentPerfect: { positive: "I have <b>eaten</b>.", negative: "He hasn't <b>eaten</b> breakfast.", question: "Have you <b>eaten</b> yet?" },
+        goingTo: { positive: "I am <b>going to eat</b>.", negative: "He isn't <b>going to eat</b>.", question: "Are you <b>going to eat</b>?" }
     },
     "Fall": {
-        infinitive: { positive: ["Leaves <b>fall</b> in autumn.", "Try not to <b>fall</b>.", "Prices might <b>fall</b>."], negative: ["Don't <b>fall</b> asleep.", "He won't <b>fall</b> for it.", "I won't <b>fall</b> behind."], question: ["Did you <b>fall</b>?", "Will the rain <b>fall</b>?", "Why do leaves <b>fall</b>?"] },
-        past: { positive: ["He <b>fell</b> down stairs.", "She <b>fell</b> in love.", "It <b>fell</b> off the shelf."], negative: ["He didn't <b>fall</b> hard.", "I didn't <b>fall</b> recently.", "We didn't <b>fall</b> for the trick."], question: ["Where did he <b>fall</b>?", "Did she <b>fall</b>?", "What <b>fell</b>?"] },
-        participle: { positive: ["Prices have <b>fallen</b>.", "She has <b>fallen</b> asleep.", "Snow has <b>fallen</b>."], negative: ["She hasn't <b>fallen</b> ill.", "Leaves haven't <b>fallen</b> yet.", "I haven't <b>fallen</b>."], question: ["Have you <b>fallen</b> in love?", "Has he <b>fallen</b> down?", "Has the price <b>fallen</b>?"] },
-        future: { positive: ["Night will <b>fall</b> soon.", "Rain will <b>fall</b> later.", "He will <b>fall</b>."], negative: ["You won't <b>fall</b>.", "It won't <b>fall</b> apart.", "She won't <b>fall</b> sick."], question: ["Will the rain <b>fall</b>?", "When will night <b>fall</b>?", "Where will it <b>fall</b>?"] },
-        goingTo: { positive: ["It is <b>going to fall</b>.", "You are <b>going to fall</b>.", "Leaves are <b>going to fall</b>."], negative: ["It isn't <b>going to fall</b>.", "You aren't <b>going to fall</b>.", "Prices aren't <b>going to fall</b>."], question: ["Is it <b>going to fall</b>?", "Are you <b>going to fall</b>?", "Where is it <b>going to fall</b>?"] }
+        presentSimple: { positive: "Leaves <b>fall</b>.", negative: "It <b>doesn't fall</b>.", question: "Does it <b>fall</b>?" },
+        past: { positive: "He <b>fell</b> down.", negative: "She didn't <b>fall</b>.", question: "Did you <b>fall</b>?" },
+        presentContinuous: { positive: "Rain is <b>falling</b>.", negative: "Prices aren't <b>falling</b>.", question: "Is snow <b>falling</b>?" },
+        presentPerfect: { positive: "He has <b>fallen</b> asleep.", negative: "It hasn't <b>fallen</b> yet.", question: "Have you <b>fallen</b>?" },
+        goingTo: { positive: "It is <b>going to fall</b>.", negative: "You aren't <b>going to fall</b>.", question: "Is it <b>going to fall</b>?" }
     },
     "Feel": {
-        infinitive: { positive: ["I want to <b>feel</b> better.", "You will <b>feel</b> it.", "Can you <b>feel</b> the rhythm?"], negative: ["I don't <b>feel</b> good.", "She doesn't <b>feel</b> right.", "Don't <b>feel</b> bad."], question: ["How do you <b>feel</b>?", "Do you <b>feel</b> sick?", "Can we <b>feel</b> this?"] },
-        past: { positive: ["She <b>felt</b> cold.", "I <b>felt</b> happy.", "We <b>felt</b> a quake."], negative: ["She didn't <b>feel</b> pain.", "I didn't <b>feel</b> sorry.", "He didn't <b>feel</b> like going."], question: ["Did you <b>feel</b> that?", "How did she <b>feel</b>?", "Who <b>felt</b> it?"] },
-        participle: { positive: ["I have <b>felt</b> this before.", "She has <b>felt</b> lonely.", "We have <b>felt</b> welcome."], negative: ["I haven't <b>felt</b> alive.", "He hasn't <b>felt</b> well.", "They haven't <b>felt</b> the same."], question: ["Have you <b>felt</b> it?", "Have you ever <b>felt</b> sad?", "Has she <b>felt</b> pain?"] },
-        future: { positive: ["You will <b>feel</b> relaxed.", "It will <b>feel</b> nice.", "I will <b>feel</b> better."], negative: ["You won't <b>feel</b> a thing.", "She won't <b>feel</b> lonely.", "It won't <b>feel</b> long."], question: ["Will it <b>feel</b> soft?", "How will I <b>feel</b>?", "Will you <b>feel</b> okay?"] },
-        goingTo: { positive: ["I am <b>going to feel</b> better.", "You are <b>going to feel</b> it.", "She is <b>going to feel</b> happy."], negative: ["I am not <b>going to feel</b> sad.", "You aren't <b>going to feel</b> pain.", "He isn't <b>going to feel</b> cold."], question: ["Are you <b>going to feel</b> okay?", "How is he <b>going to feel</b>?", "Is it <b>going to feel</b> soft?"] }
+        presentSimple: { positive: "I <b>feel</b> happy.", negative: "I <b>don't feel</b> well.", question: "Do you <b>feel</b> it?" },
+        past: { positive: "She <b>felt</b> cold.", negative: "I didn't <b>feel</b> pain.", question: "Did you <b>feel</b> that?" },
+        presentContinuous: { positive: "I am <b>feeling</b> sick.", negative: "He isn't <b>feeling</b> well.", question: "Are you <b>feeling</b> okay?" },
+        presentPerfect: { positive: "I have <b>felt</b> this before.", negative: "We haven't <b>felt</b> it.", question: "Have you <b>felt</b> sad?" },
+        goingTo: { positive: "You are <b>going to feel</b> better.", negative: "It isn't <b>going to feel</b> good.", question: "Are you <b>going to feel</b> it?" }
     },
     "Fight": {
-        infinitive: { positive: ["They had to <b>fight</b>.", "I will <b>fight</b> for it.", "We must <b>fight</b> back."], negative: ["Don't <b>fight</b> with him.", "I don't want to <b>fight</b>.", "They shouldn't <b>fight</b>."], question: ["Why do you <b>fight</b>?", "Can they <b>fight</b>?", "Who will <b>fight</b>?"] },
-        past: { positive: ["They <b>fought</b> bravely.", "He <b>fought</b> a bear.", "We <b>fought</b> for hours."], negative: ["They didn't <b>fight</b> back.", "She didn't <b>fight</b> fair.", "I didn't <b>fight</b> him."], question: ["Who <b>fought</b> in the war?", "Why did they <b>fight</b>?", "Where did you <b>fight</b>?"] },
-        participle: { positive: ["We have <b>fought</b> enough.", "He has <b>fought</b> hard.", "They have <b>fought</b> battles."], negative: ["We haven't <b>fought</b> yet.", "She hasn't <b>fought</b> the disease.", "You haven't <b>fought</b> truly."], question: ["Have you <b>fought</b> this boss?", "Have they <b>fought</b> before?", "Has he <b>fought</b> well?"] },
-        future: { positive: ["I will <b>fight</b> for you.", "They will <b>fight</b> to win.", "He will <b>fight</b> back."], negative: ["I won't <b>fight</b> you.", "We won't <b>fight</b> over this.", "She won't <b>fight</b> alone."], question: ["Will they <b>fight</b>?", "When will we <b>fight</b>?", "Who will <b>fight</b> next?"] },
-        goingTo: { positive: ["I am <b>going to fight</b> back.", "He is <b>going to fight</b>.", "They are <b>going to fight</b>."], negative: ["I am not <b>going to fight</b> you.", "He isn't <b>going to fight</b>.", "We aren't <b>going to fight</b>."], question: ["Are you <b>going to fight</b>?", "Who is <b>going to fight</b>?", "Is she <b>going to fight</b>?"] }
+        presentSimple: { positive: "They <b>fight</b> a lot.", negative: "We <b>don't fight</b>.", question: "Do they <b>fight</b>?" },
+        past: { positive: "We <b>fought</b> hard.", negative: "He didn't <b>fight</b> back.", question: "Who <b>fought</b>?" },
+        presentContinuous: { positive: "They are <b>fighting</b>.", negative: "We aren't <b>fighting</b>.", question: "Are you <b>fighting</b>?" },
+        presentPerfect: { positive: "We have <b>fought</b> well.", negative: "They haven't <b>fought</b>.", question: "Have you <b>fought</b>?" },
+        goingTo: { positive: "I am <b>going to fight</b>.", negative: "He isn't <b>going to fight</b>.", question: "Are they <b>going to fight</b>?" }
     },
     "Find": {
-        infinitive: { positive: ["I hope to <b>find</b> a job.", "You will <b>find</b> love.", "Let's <b>find</b> out."], negative: ["I can't <b>find</b> my keys.", "Don't <b>find</b> fault.", "He won't <b>find</b> it."], question: ["Did you <b>find</b> it?", "Can we <b>find</b> a way?", "Where can I <b>find</b> rent?"] },
-        past: { positive: ["He <b>found</b> a wallet.", "I <b>found</b> the solution.", "She <b>found</b> a puppy."], negative: ["He didn't <b>find</b> clues.", "We didn't <b>find</b> him.", "I didn't <b>find</b> time."], question: ["Where did you <b>find</b> this?", "Who <b>found</b> the treasure?", "Did she <b>find</b> her phone?"] },
-        participle: { positive: ["She has <b>found</b> success.", "I have <b>found</b> the answer.", "They have <b>found</b> a home."], negative: ["She hasn't <b>found</b> love.", "We haven't <b>found</b> it yet.", "He hasn't <b>found</b> peace."], question: ["Have you <b>found</b> the way?", "Has he <b>found</b> a job?", "Have they <b>found</b> out?"] },
-        future: { positive: ["You will <b>find</b> out.", "I will <b>find</b> a way.", "She will <b>find</b> happiness."], negative: ["You won't <b>find</b> me.", "He won't <b>find</b> trouble.", "It won't <b>find</b> you."], question: ["Will he <b>find</b> the treasure?", "When will you <b>find</b> it?", "Where will we <b>find</b> food?"] },
-        goingTo: { positive: ["I am <b>going to find</b> it.", "She is <b>going to find</b> love.", "We are <b>going to find</b> a way."], negative: ["I am not <b>going to find</b> him.", "You aren't <b>going to find</b> it.", "They aren't <b>going to find</b> us."], question: ["Are you <b>going to find</b> one?", "What are you <b>going to find</b>?", "Where are you <b>going to find</b> it?"] }
+        presentSimple: { positive: "I <b>find</b> clues.", negative: "He <b>doesn't find</b> it.", question: "Do you <b>find</b> it easy?" },
+        past: { positive: "She <b>found</b> money.", negative: "We didn't <b>find</b> him.", question: "Did you <b>find</b> it?" },
+        presentContinuous: { positive: "I am <b>finding</b> joy.", negative: "He isn't <b>finding</b> answers.", question: "Are you <b>finding</b> it?" },
+        presentPerfect: { positive: "I have <b>found</b> it.", negative: "She hasn't <b>found</b> her keys.", question: "Have you <b>found</b> him?" },
+        goingTo: { positive: "I am <b>going to find</b> out.", negative: "You aren't <b>going to find</b> it.", question: "Are we <b>going to find</b> it?" }
     },
     "Fly": {
-        infinitive: { positive: ["Birds <b>fly</b> south.", "I want to <b>fly</b> a plane.", "Time seems to <b>fly</b>."], negative: ["Pigs don't <b>fly</b>.", "I can't <b>fly</b> yet.", "It won't <b>fly</b> away."], question: ["Can you <b>fly</b> a plane?", "Do birds <b>fly</b> at night?", "When do we <b>fly</b>?"] },
-        past: { positive: ["We <b>flew</b> to Paris.", "The bird <b>flew</b> away.", "Time <b>flew</b> by."], negative: ["We didn't <b>fly</b> economy.", "He didn't <b>fly</b> yesterday.", "It never <b>flew</b> straight."], question: ["When did you <b>fly</b>?", "Who <b>flew</b> the jet?", "Where did it <b>fly</b>?"] },
-        participle: { positive: ["He has <b>flown</b> many times.", "She has <b>flown</b> solo.", "They have <b>flown</b> home."], negative: ["He hasn't <b>flown</b> yet.", "I haven't <b>flown</b> in a year.", "We haven't <b>flown</b> there."], question: ["Have you <b>flown</b> solo?", "Has she <b>flown</b> before?", "Have they <b>flown</b> away?"] },
-        future: { positive: ["Time will <b>fly</b>.", "I will <b>fly</b> to you.", "We will <b>fly</b> first class."], negative: ["It won't <b>fly</b> away.", "He won't <b>fly</b> again.", "They won't <b>fly</b> tomorrow."], question: ["Will you <b>fly</b> there?", "When will it <b>fly</b>?", "Will time <b>fly</b>?"] },
-        goingTo: { positive: ["I am <b>going to fly</b> there.", "We are <b>going to fly</b>.", "Birds are <b>going to fly</b>."], negative: ["I am not <b>going to fly</b>.", "We aren't <b>going to fly</b>.", "It isn't <b>going to fly</b>."], question: ["Are you <b>going to fly</b>?", "When are you <b>going to fly</b>?", "Is he <b>going to fly</b>?"] }
+        presentSimple: { positive: "Birds <b>fly</b>.", negative: "Pigs <b>don't fly</b>.", question: "Do you <b>fly</b> often?" },
+        past: { positive: "We <b>flew</b> home.", negative: "It didn't <b>fly</b>.", question: "Where did you <b>fly</b>?" },
+        presentContinuous: { positive: "I am <b>flying</b> now.", negative: "He isn't <b>flying</b>.", question: "Are you <b>flying</b>?" },
+        presentPerfect: { positive: "I have <b>flown</b> there.", negative: "She hasn't <b>flown</b> before.", question: "Have you <b>flown</b>?" },
+        goingTo: { positive: "I am <b>going to fly</b>.", negative: "She isn't <b>going to fly</b>.", question: "Are you <b>going to fly</b>?" }
     },
     "Forget": {
-        infinitive: { positive: ["Try to <b>forget</b> him.", "I will <b>forget</b> bad memories.", "It's easy to <b>forget</b>."], negative: ["Don't <b>forget</b> me.", "I can't <b>forget</b> you.", "Never <b>forget</b> the past."], question: ["Did you <b>forget</b> something?", "Will you <b>forget</b> me?", "Why do we <b>forget</b>?"] },
-        past: { positive: ["She <b>forgot</b> her password.", "I <b>forgot</b> to call.", "He <b>forgot</b> the map."], negative: ["She didn't <b>forget</b> you.", "I didn't <b>forget</b> my promise.", "They didn't <b>forget</b> us."], question: ["Why did you <b>forget</b>?", "Who <b>forgot</b> the keys?", "What did he <b>forget</b>?"] },
-        participle: { positive: ["I have <b>forgotten</b> the words.", "She has <b>forgotten</b> him.", "It is <b>forgotten</b>."], negative: ["I haven't <b>forgotten</b>.", "He hasn't <b>forgotten</b> the debt.", "We haven't <b>forgotten</b> you."], question: ["Have you <b>forgotten</b>?", "Has she <b>forgotten</b> me?", "Have they <b>forgotten</b> the rules?"] },
-        future: { positive: ["You will <b>forget</b> this.", "Time will make you <b>forget</b>.", "He will <b>forget</b> eventually."], negative: ["You won't <b>forget</b> it.", "I won't <b>forget</b> this kindness.", "She won't <b>forget</b>."], question: ["Will he <b>forget</b>?", "Will you ever <b>forget</b>?", "What will you <b>forget</b>?"] },
-        goingTo: { positive: ["I am <b>going to forget</b>.", "She is <b>going to forget</b> him.", "We are <b>going to forget</b> this."], negative: ["I am not <b>going to forget</b>.", "She isn't <b>going to forget</b>.", "We aren't <b>going to forget</b>."], question: ["Are you <b>going to forget</b>?", "Is she <b>going to forget</b>?", "Who is <b>going to forget</b>?"] }
+        presentSimple: { positive: "I <b>forget</b> names.", negative: "He <b>doesn't forget</b>.", question: "Do you <b>forget</b>?" },
+        past: { positive: "I <b>forgot</b> my keys.", negative: "She didn't <b>forget</b>.", question: "Did you <b>forget</b>?" },
+        presentContinuous: { positive: "I am <b>forgetting</b> Italian.", negative: "He isn't <b>forgetting</b> you.", question: "Are you <b>forgetting</b>?" },
+        presentPerfect: { positive: "I have <b>forgotten</b>.", negative: "He hasn't <b>forgotten</b>.", question: "Have you <b>forgotten</b>?" },
+        goingTo: { positive: "You are <b>going to forget</b>.", negative: "I am not <b>going to forget</b>.", question: "Are you <b>going to forget</b>?" }
     },
     "Forgive": {
-        infinitive: { positive: ["You must <b>forgive</b>.", "I want to <b>forgive</b>.", "It is good to <b>forgive</b>."], negative: ["I cannot <b>forgive</b> liars.", "Don't <b>forgive</b> too easily.", "He won't <b>forgive</b>."], question: ["Can you <b>forgive</b> me?", "Will you <b>forgive</b> him?", "Why should I <b>forgive</b>?"] },
-        past: { positive: ["He <b>forgave</b> his friend.", "She <b>forgave</b> the debt.", "God <b>forgave</b> him."], negative: ["He didn't <b>forgive</b> easily.", "I didn't <b>forgive</b> her.", "They never <b>forgave</b>."], question: ["Who <b>forgave</b> you?", "Why did she <b>forgive</b>?", "When did he <b>forgive</b>?"] },
-        participle: { positive: ["She has <b>forgiven</b> him.", "I have <b>forgiven</b> it all.", "We have <b>forgiven</b> you."], negative: ["She hasn't <b>forgiven</b> yet.", "I haven't <b>forgiven</b> myself.", "He hasn't <b>forgiven</b> the betrayal."], question: ["Have you <b>forgiven</b>?", "Has he <b>forgiven</b> her?", "Have they <b>forgiven</b> us?"] },
-        future: { positive: ["God will <b>forgive</b> you.", "She will <b>forgive</b> in time.", "I will <b>forgive</b>."], negative: ["I won't <b>forgive</b> that.", "He won't <b>forgive</b> cheating.", "God won't <b>forgive</b> sin."], question: ["Will she <b>forgive</b> me?", "Will you <b>forgive</b>?", "When will he <b>forgive</b>?"] },
-        goingTo: { positive: ["I am <b>going to forgive</b> you.", "She is <b>going to forgive</b> him.", "God is <b>going to forgive</b>."], negative: ["I am not <b>going to forgive</b>.", "He isn't <b>going to forgive</b> me.", "We aren't <b>going to forgive</b>."], question: ["Are you <b>going to forgive</b>?", "Is she <b>going to forgive</b>?", "Who is <b>going to forgive</b>?"] }
+        presentSimple: { positive: "I <b>forgive</b> you.", negative: "He <b>doesn't forgive</b>.", question: "Do you <b>forgive</b>?" },
+        past: { positive: "She <b>forgave</b> him.", negative: "I didn't <b>forgive</b> her.", question: "Did you <b>forgive</b>?" },
+        presentContinuous: { positive: "I am <b>forgiving</b> debt.", negative: "He isn't <b>forgiving</b>.", question: "Are you <b>forgiving</b> me?" },
+        presentPerfect: { positive: "I have <b>forgiven</b> you.", negative: "He hasn't <b>forgiven</b> her.", question: "Have you <b>forgiven</b>?" },
+        goingTo: { positive: "I am <b>going to forgive</b>.", negative: "She isn't <b>going to forgive</b>.", question: "Are you <b>going to forgive</b>?" }
     },
     "Get": {
-        infinitive: { positive: ["I need to <b>get</b> ready.", "Let's <b>get</b> coffee.", "How to <b>get</b> there?"], negative: ["Don't <b>get</b> upset.", "I can't <b>get</b> it open.", "He doesn't <b>get</b> the joke."], question: ["Did you <b>get</b> the mail?", "Can I <b>get</b> a ride?", "Where did you <b>get</b> it?"] },
-        past: { positive: ["She <b>got</b> a promotion.", "I <b>got</b> tired.", "He <b>got</b> a puppy."], negative: ["She didn't <b>get</b> the message.", "I didn't <b>get</b> paid.", "We didn't <b>get</b> lost."], question: ["What did you <b>get</b>?", "Who <b>got</b> the best score?", "When did she <b>get</b> here?"] },
-        participle: { positive: ["We have <b>gotten</b> better.", "She has <b>gotten</b> sick.", "It has <b>gotten</b> dark."], negative: ["We haven't <b>gotten</b> far.", "I haven't <b>gotten</b> an answer.", "He hasn't <b>gotten</b> up."], question: ["Have you <b>gotten</b> sick?", "Has she <b>gotten</b> the job?", "Have they <b>gotten</b> closer?"] },
-        future: { positive: ["I will <b>get</b> it done.", "He will <b>get</b> angry.", "We will <b>get</b> there."], negative: ["I won't <b>get</b> lost.", "She won't <b>get</b> caught.", "It won't <b>get</b> easier."], question: ["Will you <b>get</b> coffee?", "What will you <b>get</b>?", "When will we <b>get</b> paid?"] },
-        goingTo: { positive: ["I am <b>going to get</b> it.", "She is <b>going to get</b> better.", "We are <b>going to get</b> lost."], negative: ["I am not <b>going to get</b> sick.", "He isn't <b>going to get</b> in.", "We aren't <b>going to get</b> paid."], question: ["Are you <b>going to get</b> ready?", "Where are you <b>going to get</b> it?", "Is he <b>going to get</b> mad?"] }
+        presentSimple: { positive: "I <b>get</b> up early.", negative: "He <b>doesn't get</b> it.", question: "Do you <b>get</b> mail?" },
+        past: { positive: "She <b>got</b> a gift.", negative: "I didn't <b>get</b> paid.", question: "What did you <b>get</b>?" },
+        presentContinuous: { positive: "It is <b>getting</b> cold.", negative: "We aren't <b>getting</b> out.", question: "Are you <b>getting</b> tired?" },
+        presentPerfect: { positive: "I have <b>gotten</b> better.", negative: "He hasn't <b>gotten</b> it.", question: "Have you <b>gotten</b> the message?" },
+        goingTo: { positive: "I am <b>going to get</b> it.", negative: "He isn't <b>going to get</b> in.", question: "Are you <b>going to get</b> up?" }
     },
     "Give": {
-        infinitive: { positive: ["Please <b>give</b> me a hand.", "I want to <b>give</b> back.", "<b>Give</b> it a try."], negative: ["Don't <b>give</b> up.", "I won't <b>give</b> in.", "She cannot <b>give</b> more."], question: ["What can you <b>give</b>?", "Can you <b>give</b> money?", "Did you <b>give</b> it away?"] },
-        past: { positive: ["He <b>gave</b> a speech.", "I <b>gave</b> him a book.", "She <b>gave</b> thanks."], negative: ["He didn't <b>give</b> money.", "I didn't <b>give</b> permission.", "We didn't <b>give</b> up."], question: ["Who <b>gave</b> you that?", "What did you <b>give</b>?", "Why did she <b>give</b> it?"] },
-        participle: { positive: ["I have <b>given</b> my all.", "She has <b>given</b> birth.", "We have <b>given</b> notice."], negative: ["I haven't <b>given</b> up.", "He hasn't <b>given</b> an answer.", "They haven't <b>given</b> reasons."], question: ["Have you <b>given</b> blood?", "Has she <b>given</b> consent?", "What have you <b>given</b>?"] },
-        future: { positive: ["She will <b>give</b> advice.", "I will <b>give</b> you a ride.", "It will <b>give</b> joy."], negative: ["She won't <b>give</b> in.", "I won't <b>give</b> money.", "He won't <b>give</b> us time."], question: ["Will you <b>give</b> a ride?", "What will they <b>give</b>?", "Will it <b>give</b> light?"] },
-        goingTo: { positive: ["I am <b>going to give</b> up.", "She is <b>going to give</b> money.", "We are <b>going to give</b> thanks."], negative: ["I am not <b>going to give</b> in.", "He isn't <b>going to give</b> it back.", "We aren't <b>going to give</b> up."], question: ["Are you <b>going to give</b>?", "What are you <b>going to give</b>?", "Is she <b>going to give</b>?"] }
+        presentSimple: { positive: "I <b>give</b> gifts.", negative: "She <b>doesn't give</b> up.", question: "Do you <b>give</b> money?" },
+        past: { positive: "He <b>gave</b> a speech.", negative: "I didn't <b>give</b> it.", question: "What did you <b>give</b>?" },
+        presentContinuous: { positive: "I am <b>giving</b> back.", negative: "He isn't <b>giving</b> up.", question: "Are you <b>giving</b>?" },
+        presentPerfect: { positive: "I have <b>given</b> enough.", negative: "She hasn't <b>given</b> up.", question: "Have you <b>given</b> details?" },
+        goingTo: { positive: "I am <b>going to give</b>.", negative: "She isn't <b>going to give</b>.", question: "Are you <b>going to give</b>?" }
     },
     "Go": {
-        infinitive: { positive: ["I want to <b>go</b> home.", "Let's <b>go</b> out.", "We must <b>go</b>."], negative: ["Don't <b>go</b> there.", "I can't <b>go</b> with you.", "He won't <b>go</b>."], question: ["Where do you <b>go</b>?", "Can we <b>go</b> now?", "Did he <b>go</b>?"] },
-        past: { positive: ["They <b>went</b> to sleep.", "I <b>went</b> to the park.", "She <b>went</b> crazy."], negative: ["They didn't <b>go</b> out.", "I didn't <b>go</b> to school.", "He didn't <b>go</b> fast."], question: ["Where did they <b>go</b>?", "Why did you <b>go</b>?", "Who <b>went</b> with you?"] },
-        participle: { positive: ["She has <b>gone</b> home.", "I have <b>gone</b> too far.", "It has <b>gone</b> bad."], negative: ["She hasn't <b>gone</b> yet.", "We haven't <b>gone</b> shopping.", "He hasn't <b>gone</b> anywhere."], question: ["Where has he <b>gone</b>?", "Has it <b>gone</b> wrong?", "Have you <b>gone</b> there?"] },
-        future: { positive: ["We will <b>go</b> together.", "I will <b>go</b> tomorrow.", "He will <b>go</b> far."], negative: ["We won't <b>go</b> back.", "I won't <b>go</b> without you.", "She won't <b>go</b> alone."], question: ["Will you <b>go</b> with me?", "Where will you <b>go</b>?", "When will they <b>go</b>?"] },
-        goingTo: { positive: ["I am <b>going to go</b> home.", "We are <b>going to go</b> out.", "She is <b>going to go</b> crazy."], negative: ["I am not <b>going to go</b>.", "He isn't <b>going to go</b> there.", "We aren't <b>going to go</b>."], question: ["Are you <b>going to go</b>?", "Where are you <b>going to go</b>?", "When is he <b>going to go</b>?"] }
+        presentSimple: { positive: "I <b>go</b> to school.", negative: "He <b>doesn't go</b> there.", question: "Do you <b>go</b>?" },
+        past: { positive: "She <b>went</b> home.", negative: "We didn't <b>go</b> out.", question: "Where did you <b>go</b>?" },
+        presentContinuous: { positive: "I am <b>going</b> now.", negative: "He isn't <b>going</b>.", question: "Where are you <b>going</b>?" },
+        presentPerfect: { positive: "She has <b>gone</b> out.", negative: "I haven't <b>gone</b> yet.", question: "Have you <b>gone</b> there?" },
+        goingTo: { positive: "I am <b>going to go</b>.", negative: "She isn't <b>going to go</b>.", question: "Are you <b>going to go</b>?" }
     },
     "Grow": {
-        infinitive: { positive: ["Plants <b>grow</b> fast.", "Kids <b>grow</b> up.", "Let it <b>grow</b>."], negative: ["Does money <b>grow</b> on trees?", "It doesn't <b>grow</b> here.", "Don't <b>grow</b> old."], question: ["How tall will it <b>grow</b>?", "Do you <b>grow</b> flowers?", "Where does it <b>grow</b>?"] },
-        past: { positive: ["He <b>grew</b> a beard.", "The city <b>grew</b> rapidly.", "She <b>grew</b> tired."], negative: ["He didn't <b>grow</b> up here.", "It didn't <b>grow</b> well.", "We didn't <b>grow</b> apart."], question: ["How much did you <b>grow</b>?", "Where did he <b>grow</b> up?", "Why did it <b>grow</b>?"] },
-        participle: { positive: ["It has <b>grown</b> dark.", "She has <b>grown</b> a lot.", "We have <b>grown</b> closer."], negative: ["It hasn't <b>grown</b> yet.", "He hasn't <b>grown</b> taller.", "They haven't <b>grown</b> crops."], question: ["Have you <b>grown</b> attached?", "Has the economy <b>grown</b>?", "What has <b>grown</b>?"] },
-        future: { positive: ["Investments will <b>grow</b>.", "You will <b>grow</b> stronger.", "It will <b>grow</b> back."], negative: ["It won't <b>grow</b> back.", "He won't <b>grow</b> taller.", "Money won't <b>grow</b>."], question: ["Will this plant <b>grow</b>?", "How big will it <b>grow</b>?", "Will we <b>grow</b> old?"] },
-        goingTo: { positive: ["It is <b>going to grow</b>.", "He is <b>going to grow</b> up.", "We are <b>going to grow</b>."], negative: ["It isn't <b>going to grow</b>.", "He isn't <b>going to grow</b> tall.", "We aren't <b>going to grow</b> apart."], question: ["Is it <b>going to grow</b>?", "How big is it <b>going to grow</b>?", "Are you <b>going to grow</b>?"] }
+        presentSimple: { positive: "Flowers <b>grow</b>.", negative: "It <b>doesn't grow</b>.", question: "Do they <b>grow</b>?" },
+        past: { positive: "He <b>grew</b> tall.", negative: "It didn't <b>grow</b>.", question: "How much did it <b>grow</b>?" },
+        presentContinuous: { positive: "It is <b>growing</b>.", negative: "He isn't <b>growing</b>.", question: "Is it <b>growing</b>?" },
+        presentPerfect: { positive: "It has <b>grown</b> alot.", negative: "He hasn't <b>grown</b> up.", question: "Have you <b>grown</b>?" },
+        goingTo: { positive: "It is <b>going to grow</b>.", negative: "I am not <b>going to grow</b>.", question: "Is it <b>going to grow</b>?" }
     },
     "Have": {
-        infinitive: { positive: ["I want to <b>have</b> fun.", "We <b>have</b> to leave.", "Can I <b>have</b> this?"], negative: ["I don't <b>have</b> time.", "We don't <b>have</b> money.", "He can't <b>have</b> it."], question: ["Do you <b>have</b> a pen?", "Can we <b>have</b> dinner?", "What does he <b>have</b>?"] },
-        past: { positive: ["We <b>had</b> a good time.", "I <b>had</b> a dream.", "She <b>had</b> a baby."], negative: ["We didn't <b>have</b> enough.", "I didn't <b>have</b> breakfast.", "He didn't <b>have</b> issues."], question: ["Did you <b>have</b> breakfast?", "What did she <b>have</b>?", "Who <b>had</b> the key?"] },
-        participle: { positive: ["I have <b>had</b> issues.", "She has <b>had</b> luck.", "We have <b>had</b> fun."], negative: ["I haven't <b>had</b> lunch.", "He hasn't <b>had</b> time.", "They haven't <b>had</b> a chance."], question: ["Have you <b>had</b> surgery?", "Has she <b>had</b> visitors?", "Have we <b>had</b> results?"] },
-        future: { positive: ["We will <b>have</b> a party.", "I will <b>have</b> time.", "You will <b>have</b> it."], negative: ["We won't <b>have</b> delay.", "I won't <b>have</b> trouble.", "He won't <b>have</b> less."], question: ["Will you <b>have</b> some?", "When will we <b>have</b> lunch?", "What will you <b>have</b>?"] },
-        goingTo: { positive: ["I am <b>going to have</b> fun.", "We are <b>going to have</b> dinner.", "She is <b>going to have</b> a baby."], negative: ["I am not <b>going to have</b> time.", "He isn't <b>going to have</b> much.", "We aren't <b>going to have</b> it."], question: ["Are you <b>going to have</b> lunch?", "What are you <b>going to have</b>?", "Is she <b>going to have</b> it?"] }
+        presentSimple: { positive: "I <b>have</b> a cat.", negative: "I <b>don't have</b> time.", question: "Do you <b>have</b> it?" },
+        past: { positive: "We <b>had</b> fun.", negative: "I didn't <b>have</b> cash.", question: "Did you <b>have</b> fun?" },
+        presentContinuous: { positive: "I am <b>having</b> lunch.", negative: "He isn't <b>having</b> fun.", question: "Are you <b>having</b> trouble?" },
+        presentPerfect: { positive: "I have <b>had</b> enough.", negative: "We haven't <b>had</b> lunch.", question: "Have you <b>had</b> time?" },
+        goingTo: { positive: "I am <b>going to have</b> it.", negative: "You aren't <b>going to have</b>.", question: "Are we <b>going to have</b> fun?" }
     },
     "Hear": {
-        infinitive: { positive: ["I can <b>hear</b> you.", "I want to <b>hear</b> music.", "Speak so I can <b>hear</b>."], negative: ["I can't <b>hear</b> well.", "Don't <b>hear</b> wrong.", "She doesn't <b>hear</b> me."], question: ["Did you <b>hear</b> that?", "Can you <b>hear</b> me?", "Do you <b>hear</b> bells?"] },
-        past: { positive: ["She <b>heard</b> a noise.", "I <b>heard</b> the news.", "We <b>heard</b> a song."], negative: ["She didn't <b>hear</b> me.", "I didn't <b>hear</b> you.", "He didn't <b>hear</b> the bell."], question: ["Who <b>heard</b> the news?", "What did you <b>hear</b>?", "When did you <b>hear</b> it?"] },
-        participle: { positive: ["I have <b>heard</b> rumors.", "We have <b>heard</b> that.", "She has <b>heard</b> from him."], negative: ["I haven't <b>heard</b> back.", "They haven't <b>heard</b> the truth.", "He hasn't <b>heard</b> a sound."], question: ["Have you <b>heard</b>?", "Has she <b>heard</b> the song?", "Who has <b>heard</b>?"] },
-        future: { positive: ["You will <b>hear</b> from us.", "We will <b>hear</b> the verdict.", "She will <b>hear</b> it."], negative: ["You won't <b>hear</b> a peep.", "I won't <b>hear</b> excuses.", "He won't <b>hear</b> the end."], question: ["Will we <b>hear</b> music?", "When will I <b>hear</b> back?", "Will you <b>hear</b> me out?"] },
-        goingTo: { positive: ["You are <b>going to hear</b> me.", "We are <b>going to hear</b> news.", "She is <b>going to hear</b> this."], negative: ["You aren't <b>going to hear</b>.", "We aren't <b>going to hear</b> back.", "He isn't <b>going to hear</b>."], question: ["Are you <b>going to hear</b>?", "When are we <b>going to hear</b>?", "Is she <b>going to hear</b>?"] }
+        presentSimple: { positive: "I <b>hear</b> birds.", negative: "I <b>don't hear</b> you.", question: "Do you <b>hear</b> that?" },
+        past: { positive: "She <b>heard</b> a noise.", negative: "I didn't <b>hear</b> it.", question: "Did you <b>hear</b> me?" },
+        presentContinuous: { positive: "I am <b>hearing</b> things.", negative: "He isn't <b>hearing</b> well.", question: "Are you <b>hearing</b> this?" },
+        presentPerfect: { positive: "I have <b>heard</b> it.", negative: "She hasn't <b>heard</b> of it.", question: "Have you <b>heard</b> this?" },
+        goingTo: { positive: "You are <b>going to hear</b>.", negative: "He isn't <b>going to hear</b>.", question: "Are you <b>going to hear</b>?" }
     },
     "Know": {
-        infinitive: { positive: ["I want to <b>know</b> why.", "You need to <b>know</b>.", "I <b>know</b> the way."], negative: ["I don't <b>know</b> him.", "She doesn't <b>know</b> how.", "We don't <b>know</b> yet."], question: ["Do you <b>know</b> me?", "Does he <b>know</b>?", "How do you <b>know</b>?"] },
-        past: { positive: ["He <b>knew</b> the answer.", "I <b>knew</b> it.", "She <b>knew</b> the truth."], negative: ["He didn't <b>know</b> how.", "I didn't <b>know</b> that.", "We didn't <b>know</b> him."], question: ["Did you <b>know</b> that?", "Who <b>knew</b>?", "How did she <b>know</b>?"] },
-        participle: { positive: ["I have <b>known</b> him for years.", "She has <b>known</b> peace.", "We have <b>known</b> poverty."], negative: ["I haven't <b>known</b> peace.", "He hasn't <b>known</b> love.", "They haven't <b>known</b> success."], question: ["Have you <b>known</b> love?", "How long have you <b>known</b>?", "Who has <b>known</b> trouble?"] },
-        future: { positive: ["You will <b>know</b> soon.", "I will <b>know</b> the truth.", "He will <b>know</b> better."], negative: ["You won't <b>know</b> the difference.", "I won't <b>know</b> anyone.", "She won't <b>know</b>."], question: ["Will they <b>know</b>?", "When will I <b>know</b>?", "Who will <b>know</b>?"] },
-        goingTo: { positive: ["You are <b>going to know</b>.", "He is <b>going to know</b>.", "We are <b>going to know</b> soon."], negative: ["You aren't <b>going to know</b>.", "He isn't <b>going to know</b>.", "We aren't <b>going to know</b>."], question: ["Are you <b>going to know</b>?", "How are you <b>going to know</b>?", "Who is <b>going to know</b>?"] }
+        presentSimple: { positive: "I <b>know</b> the answer.", negative: "I <b>don't know</b>.", question: "Do you <b>know</b> him?" },
+        past: { positive: "He <b>knew</b> it.", negative: "I didn't <b>know</b>.", question: "Did you <b>know</b>?" },
+        presentContinuous: { positive: "I am <b>getting to know</b> him.", negative: "I am not <b>knowing</b>.", question: "Are you <b>getting to know</b>?" },
+        presentPerfect: { positive: "I have <b>known</b> him for years.", negative: "Usually used in past simple.", question: "Have you <b>known</b> this?" },
+        goingTo: { positive: "You are <b>going to know</b>.", negative: "He isn't <b>going to know</b>.", question: "Are you <b>going to know</b>?" }
     },
     "Learn": {
-        infinitive: { positive: ["I want to <b>learn</b> Spanish.", "We must <b>learn</b>.", "Kids <b>learn</b> fast."], negative: ["I can't <b>learn</b> this.", "Don't <b>learn</b> bad habits.", "He doesn't <b>learn</b>."], question: ["Can you <b>learn</b> fast?", "What will you <b>learn</b>?", "How do we <b>learn</b>?"] },
-        past: { positive: ["She <b>learnt</b> to drive.", "I <b>learned</b> a lot.", "He <b>learnt</b> quickly."], negative: ["She didn't <b>learn</b> at all.", "I didn't <b>learn</b> anything.", "We didn't <b>learn</b> the lesson."], question: ["What did you <b>learn</b>?", "Where did you <b>learn</b> that?", "How did he <b>learn</b>?"] },
-        participle: { positive: ["We have <b>learnt</b> a lot.", "I have <b>learned</b> my lesson.", "She has <b>learnt</b> to cook."], negative: ["We haven't <b>learnt</b> yet.", "He hasn't <b>learned</b> respect.", "I haven't <b>learnt</b> enough."], question: ["Have you <b>learnt</b> it?", "What have they <b>learned</b>?", "Has she <b>learnt</b>?"] },
-        future: { positive: ["He will <b>learn</b> well.", "You will <b>learn</b> in time.", "We will <b>learn</b> together."], negative: ["He won't <b>learn</b> lying.", "I won't <b>learn</b> that.", "She won't <b>learn</b> math."], question: ["Will you <b>learn</b>?", "What will he <b>learn</b>?", "When will we <b>learn</b>?"] },
-        goingTo: { positive: ["I am <b>going to learn</b> it.", "He is <b>going to learn</b>.", "We are <b>going to learn</b>."], negative: ["I am not <b>going to learn</b>.", "He isn't <b>going to learn</b>.", "We aren't <b>going to learn</b>."], question: ["Are you <b>going to learn</b>?", "Is he <b>going to learn</b>?", "Who is <b>going to learn</b>?"] }
+        presentSimple: { positive: "I <b>learn</b> fast.", negative: "He <b>doesn't learn</b>.", question: "Do you <b>learn</b>?" },
+        past: { positive: "She <b>learned</b> English.", negative: "I didn't <b>learn</b>.", question: "What did you <b>learn</b>?" },
+        presentContinuous: { positive: "I am <b>learning</b> to drive.", negative: "He isn't <b>learning</b>.", question: "Are you <b>learning</b>?" },
+        presentPerfect: { positive: "I have <b>learned</b> a lot.", negative: "We haven't <b>learned</b> it.", question: "Have you <b>learned</b> this?" },
+        goingTo: { positive: "I am <b>going to learn</b>.", negative: "She isn't <b>going to learn</b>.", question: "Are you <b>going to learn</b>?" }
     },
     "Lend": {
-        infinitive: { positive: ["Can you <b>lend</b> me money?", "Please <b>lend</b> a hand.", "I can <b>lend</b> it."], negative: ["I won't <b>lend</b> it.", "Don't <b>lend</b> him cash.", "She can't <b>lend</b> books."], question: ["Will you <b>lend</b> a hand?", "Can I <b>lend</b> you this?", "Who will <b>lend</b> it?"] },
-        past: { positive: ["He <b>lent</b> me his car.", "I <b>lent</b> him money.", "She <b>lent</b> her voice."], negative: ["He didn't <b>lend</b> support.", "I didn't <b>lend</b> it.", "We didn't <b>lend</b> anything."], question: ["Who <b>lent</b> you this?", "Did she <b>lend</b> it?", "Why did you <b>lend</b> him?"] },
-        participle: { positive: ["She has <b>lent</b> her voice.", "I have <b>lent</b> money.", "We have <b>lent</b> our support."], negative: ["She hasn't <b>lent</b> any.", "He hasn't <b>lent</b> it back.", "I haven't <b>lent</b> books."], question: ["Have you <b>lent</b> it out?", "Has he <b>lent</b> money?", "Who has <b>lent</b> help?"] },
-        future: { positive: ["I will <b>lend</b> it to you.", "He will <b>lend</b> a hand.", "Banks will <b>lend</b>."], negative: ["I won't <b>lend</b> more.", "She won't <b>lend</b> money.", "They won't <b>lend</b>."], question: ["Will the bank <b>lend</b>?", "Will you <b>lend</b> me $5?", "Who will <b>lend</b>?"] },
-        goingTo: { positive: ["I am <b>going to lend</b> it.", "She is <b>going to lend</b> money.", "We are <b>going to lend</b> a hand."], negative: ["I am not <b>going to lend</b>.", "She isn't <b>going to lend</b>.", "They aren't <b>going to lend</b>."], question: ["Are you <b>going to lend</b>?", "Who is <b>going to lend</b>?", "Is she <b>going to lend</b>?"] }
+        presentSimple: { positive: "I <b>lend</b> books.", negative: "He <b>doesn't lend</b> money.", question: "Do you <b>lend</b> it?" },
+        past: { positive: "She <b>lent</b> me a pen.", negative: "I didn't <b>lend</b> it.", question: "Who <b>lent</b> you money?" },
+        presentContinuous: { positive: "I am <b>lending</b> a hand.", negative: "He isn't <b>lending</b>.", question: "Are you <b>lending</b>?" },
+        presentPerfect: { positive: "I have <b>lent</b> it out.", negative: "He hasn't <b>lent</b> me any.", question: "Have you <b>lent</b> it?" },
+        goingTo: { positive: "I am <b>going to lend</b> it.", negative: "She isn't <b>going to lend</b>.", question: "Are you <b>going to lend</b>?" }
     },
     "Make": {
-        infinitive: { positive: ["I like to <b>make</b> art.", "Let's <b>make</b> dinner.", "I can <b>make</b> it."], negative: ["Don't <b>make</b> a mess.", "I can't <b>make</b> it.", "He doesn't <b>make</b> sense."], question: ["Can you <b>make</b> it?", "What do you <b>make</b>?", "How do you <b>make</b> this?"] },
-        past: { positive: ["Mom <b>made</b> dinner.", "I <b>made</b> a mistake.", "He <b>made</b> a joke."], negative: ["She didn't <b>make</b> the bed.", "I didn't <b>make</b> noise.", "We didn't <b>make</b> it."], question: ["Who <b>made</b> this?", "What did you <b>make</b>?", "How did she <b>make</b> it?"] },
-        participle: { positive: ["We have <b>made</b> progress.", "I have <b>made</b> plans.", "She has <b>made</b> friends."], negative: ["We haven't <b>made</b> sure.", "I haven't <b>made</b> decision.", "He hasn't <b>made</b> peace."], question: ["Have you <b>made</b> friends?", "What have you <b>made</b>?", "Has she <b>made</b> cake?"] },
-        future: { positive: ["This will <b>make</b> sense.", "I will <b>make</b> tea.", "He will <b>make</b> money."], negative: ["It won't <b>make</b> you rich.", "I won't <b>make</b> trouble.", "She won't <b>make</b> it."], question: ["Will that <b>make</b> you happy?", "What will you <b>make</b>?", "Will it <b>make</b> noise?"] },
-        goingTo: { positive: ["I am <b>going to make</b> tea.", "She is <b>going to make</b> it.", "We are <b>going to make</b> money."], negative: ["I am not <b>going to make</b> trouble.", "He isn't <b>going to make</b> it.", "We aren't <b>going to make</b> noise."], question: ["Are you <b>going to make</b> it?", "What are you <b>going to make</b>?", "Who is <b>going to make</b> it?"] }
+        presentSimple: { positive: "I <b>make</b> cake.", negative: "He <b>doesn't make</b> noise.", question: "Do you <b>make</b> art?" },
+        past: { positive: "She <b>made</b> dinner.", negative: "I didn't <b>make</b> it.", question: "What did you <b>make</b>?" },
+        presentContinuous: { positive: "I am <b>making</b> coffee.", negative: "He isn't <b>making</b> sense.", question: "What are you <b>making</b>?" },
+        presentPerfect: { positive: "I have <b>made</b> a choice.", negative: "She hasn't <b>made</b> it.", question: "Have you <b>made</b> plans?" },
+        goingTo: { positive: "I am <b>going to make</b> it.", negative: "She isn't <b>going to make</b>.", question: "Are you <b>going to make</b>?" }
     },
     "Meet": {
-        infinitive: { positive: ["Nice to <b>meet</b> you.", "Let's <b>meet</b> up.", "I want to <b>meet</b> him."], negative: ["We shouldn't <b>meet</b>.", "I can't <b>meet</b> now.", "Don't <b>meet</b> strangers."], question: ["When shall we <b>meet</b>?", "Where do we <b>meet</b>?", "Can we <b>meet</b>?"] },
-        past: { positive: ["We <b>met</b> yesterday.", "I <b>met</b> her before.", "They <b>met</b> online."], negative: ["We didn't <b>meet</b> before.", "I didn't <b>meet</b> him.", "She didn't <b>meet</b> us."], question: ["Where did you <b>meet</b>?", "Who did you <b>meet</b>?", "When did they <b>meet</b>?"] },
-        participle: { positive: ["I have <b>met</b> him.", "We have <b>met</b> expectations.", "She has <b>met</b> the team."], negative: ["I haven't <b>met</b> her.", "They haven't <b>met</b> yet.", "He hasn't <b>met</b> the goal."], question: ["Have you <b>met</b> the boss?", "Has she <b>met</b> you?", "Who has <b>met</b> him?"] },
-        future: { positive: ["We will <b>meet</b> again.", "I will <b>meet</b> you there.", "He will <b>meet</b> us."], negative: ["We won't <b>meet</b> today.", "I won't <b>meet</b> expectations.", "You won't <b>meet</b> him."], question: ["Will you <b>meet</b> me?", "Where will we <b>meet</b>?", "When will they <b>meet</b>?"] },
-        goingTo: { positive: ["I am <b>going to meet</b> him.", "We are <b>going to meet</b>.", "She is <b>going to meet</b> us."], negative: ["I am not <b>going to meet</b> her.", "We aren't <b>going to meet</b>.", "He isn't <b>going to meet</b>."], question: ["Are you <b>going to meet</b>?", "When are you <b>going to meet</b>?", "Where are you <b>going to meet</b>?"] }
+        presentSimple: { positive: "I <b>meet</b> friends.", negative: "He <b>doesn't meet</b> us.", question: "Do you <b>meet</b> here?" },
+        past: { positive: "We <b>met</b> yesterday.", negative: "I didn't <b>meet</b> him.", question: "When did you <b>meet</b>?" },
+        presentContinuous: { positive: "I am <b>meeting</b> him.", negative: "She isn't <b>meeting</b> us.", question: "Are you <b>meeting</b>?" },
+        presentPerfect: { positive: "We have <b>met</b> before.", negative: "I haven't <b>met</b> him.", question: "Have you <b>met</b> her?" },
+        goingTo: { positive: "I am <b>going to meet</b> her.", negative: "We aren't <b>going to meet</b>.", question: "Are you <b>going to meet</b>?" }
     },
     "Pay": {
-        infinitive: { positive: ["I need to <b>pay</b> bills.", "Please <b>pay</b> attention.", "You must <b>pay</b>."], negative: ["Don't <b>pay</b> attention.", "I can't <b>pay</b>.", "He won't <b>pay</b>."], question: ["Who will <b>pay</b>?", "Can you <b>pay</b>?", "How do I <b>pay</b>?"] },
-        past: { positive: ["He <b>paid</b> cash.", "I <b>paid</b> the bill.", "She <b>paid</b> well."], negative: ["He didn't <b>pay</b> taxes.", "I didn't <b>pay</b> attention.", "We didn't <b>pay</b> much."], question: ["How much did you <b>pay</b>?", "Who <b>paid</b> for this?", "Did he <b>pay</b>?"] },
-        participle: { positive: ["I have <b>paid</b> my dues.", "She has <b>paid</b> off debt.", "We have <b>paid</b> rent."], negative: ["I haven't <b>paid</b> yet.", "He hasn't <b>paid</b> attention.", "They haven't <b>paid</b>."], question: ["Have you <b>paid</b>?", "Who has <b>paid</b>?", "Has she <b>paid</b>?"] },
-        future: { positive: ["It will <b>pay</b> off.", "I will <b>pay</b> you.", "He will <b>pay</b> securely."], negative: ["You won't <b>pay</b> extra.", "I won't <b>pay</b> for that.", "She won't <b>pay</b>."], question: ["Will he <b>pay</b> us?", "When will you <b>pay</b>?", "Who will <b>pay</b> next?"] },
-        goingTo: { positive: ["I am <b>going to pay</b>.", "He is <b>going to pay</b>.", "We are <b>going to pay</b>."], negative: ["I am not <b>going to pay</b>.", "He isn't <b>going to pay</b>.", "We aren't <b>going to pay</b>."], question: ["Are you <b>going to pay</b>?", "Who is <b>going to pay</b>?", "When are you <b>going to pay</b>?"] }
+        presentSimple: { positive: "I <b>pay</b> with cash.", negative: "He <b>doesn't pay</b> attention.", question: "Do you <b>pay</b> taxes?" },
+        past: { positive: "I <b>paid</b> the bill.", negative: "He didn't <b>pay</b> much.", question: "Who <b>paid</b> for this?" },
+        presentContinuous: { positive: "I am <b>paying</b> the bill.", negative: "He isn't <b>paying</b> attention.", question: "Are you <b>paying</b>?" },
+        presentPerfect: { positive: "I have <b>paid</b> debts.", negative: "He hasn't <b>paid</b> yet.", question: "Have you <b>paid</b> it?" },
+        goingTo: { positive: "I am <b>going to pay</b>.", negative: "He isn't <b>going to pay</b>.", question: "Are you <b>going to pay</b>?" }
     },
     "Put": {
-        infinitive: { positive: ["Please <b>put</b> it down.", "I <b>put</b> confidence in you.", "Just <b>put</b> it there."], negative: ["Don't <b>put</b> it there.", "I can't <b>put</b> it gently.", "He doesn't <b>put</b> effort."], question: ["Where should I <b>put</b> it?", "Can you <b>put</b> it back?", "Did you <b>put</b> it on?"] },
-        past: { positive: ["She <b>put</b> on a coat.", "I <b>put</b> it away.", "He <b>put</b> sugar in tea."], negative: ["She didn't <b>put</b> makeup.", "I didn't <b>put</b> it there.", "He didn't <b>put</b> on shoes."], question: ["Where did you <b>put</b> my phone?", "Who <b>put</b> this here?", "Why did she <b>put</b> that?"] },
-        participle: { positive: ["He has <b>put</b> effort.", "I have <b>put</b> it back.", "We have <b>put</b> up with it."], negative: ["He hasn't <b>put</b> it back.", "She hasn't <b>put</b> on weight.", "I haven't <b>put</b> it down."], question: ["Have you <b>put</b> gas?", "Where have you <b>put</b> it?", "Has he <b>put</b> it away?"] },
-        future: { positive: ["I will <b>put</b> it away.", "He will <b>put</b> it right.", "She will <b>put</b> on music."], negative: ["I won't <b>put</b> up with it.", "He won't <b>put</b> it there.", "We won't <b>put</b> pressure."], question: ["Will you <b>put</b> it here?", "Where will you <b>put</b> it?", "Who will <b>put</b> it out?"] },
-        goingTo: { positive: ["I am <b>going to put</b> it here.", "He is <b>going to put</b> it away.", "She is <b>going to put</b> it on."], negative: ["I am not <b>going to put</b> it there.", "He isn't <b>going to put</b> it down.", "We aren't <b>going to put</b> up with it."], question: ["Are you <b>going to put</b> it back?", "Where are you <b>going to put</b> it?", "Is he <b>going to put</b> it?"] }
+        presentSimple: { positive: "I <b>put</b> it here.", negative: "He <b>doesn't put</b> it back.", question: "Do you <b>put</b> sugar?" },
+        past: { positive: "She <b>put</b> it away.", negative: "I didn't <b>put</b> it there.", question: "Where did you <b>put</b> it?" },
+        presentContinuous: { positive: "I am <b>putting</b> it down.", negative: "He isn't <b>putting</b> effort.", question: "Are you <b>putting</b> it on?" },
+        presentPerfect: { positive: "I have <b>put</b> it back.", negative: "He hasn't <b>put</b> it away.", question: "Have you <b>put</b> it out?" },
+        goingTo: { positive: "I am <b>going to put</b> it away.", negative: "He isn't <b>going to put</b> it.", question: "Are you <b>going to put</b> it?" }
     },
     "Read": {
-        infinitive: { positive: ["I love to <b>read</b> books.", "Please <b>read</b> this.", "I can <b>read</b> fast."], negative: ["I don't <b>read</b> much.", "Don't <b>read</b> my diary.", "He doesn't <b>read</b>."], question: ["Can you <b>read</b> this?", "Do you like to <b>read</b>?", "What do you <b>read</b>?"] },
-        past: { positive: ["I <b>read</b> that book.", "She <b>read</b> my text.", "He <b>read</b> well."], negative: ["I didn't <b>read</b> the sign.", "She didn't <b>read</b> it.", "We didn't <b>read</b> far."], question: ["Has he <b>read</b> the memo?", "What did you <b>read</b>?", "Did she <b>read</b> this?"] }, // Past usually same spelling, diff pronunciation
-        participle: { positive: ["She has <b>read</b> widely.", "I have <b>read</b> the news.", "We have <b>read</b> it."], negative: ["She hasn't <b>read</b> it.", "I haven't <b>read</b> that one.", "He hasn't <b>read</b> the rules."], question: ["Have you <b>read</b> today?", "Has he <b>read</b> the book?", "What have you <b>read</b>?"] },
-        future: { positive: ["I will <b>read</b> it later.", "She will <b>read</b> to us.", "He will <b>read</b> the map."], negative: ["I won't <b>read</b> aloud.", "She won't <b>read</b> it.", "They won't <b>read</b>."], question: ["Will you <b>read</b> to me?", "What will you <b>read</b>?", "When will we <b>read</b>?"] },
-        goingTo: { positive: ["I am <b>going to read</b>.", "She is <b>going to read</b>.", "We are <b>going to read</b>."], negative: ["I am not <b>going to read</b>.", "She isn't <b>going to read</b>.", "We aren't <b>going to read</b>."], question: ["Are you <b>going to read</b>?", "What are you <b>going to read</b>?", "Is she <b>going to read</b>?"] }
+        presentSimple: { positive: "I <b>read</b> books.", negative: "He <b>doesn't read</b> fast.", question: "Do you <b>read</b> often?" },
+        past: { positive: "I <b>read</b> the news.", negative: "She didn't <b>read</b> it.", question: "Did you <b>read</b> this?" },
+        presentContinuous: { positive: "I am <b>reading</b> a book.", negative: "She isn't <b>reading</b>.", question: "Are you <b>reading</b>?" },
+        presentPerfect: { positive: "I have <b>read</b> that.", negative: "He hasn't <b>read</b> it.", question: "Have you <b>read</b> this?" },
+        goingTo: { positive: "I am <b>going to read</b>.", negative: "She isn't <b>going to read</b>.", question: "Are you <b>going to read</b>?" }
     },
     "Ride": {
-        infinitive: { positive: ["I want to <b>ride</b> a bike.", "Let's <b>ride</b> horses.", "Can you <b>ride</b>?"], negative: ["Don't <b>ride</b> too fast.", "I can't <b>ride</b>.", "He doesn't <b>ride</b>."], question: ["Can you <b>ride</b>?", "Do you want to <b>ride</b>?", "Where do we <b>ride</b>?"] },
-        past: { positive: ["He <b>rode</b> a horse.", "I <b>rode</b> the bus.", "We <b>rode</b> bikes."], negative: ["He didn't <b>ride</b> the bus.", "I didn't <b>ride</b> today.", "She didn't <b>ride</b> along."], question: ["Who <b>rode</b> with you?", "Where did you <b>ride</b>?", "Did he <b>ride</b>?"] },
-        participle: { positive: ["We have <b>ridden</b> far.", "She has <b>ridden</b> a camel.", "I have <b>ridden</b> that."], negative: ["We haven't <b>ridden</b> yet.", "I haven't <b>ridden</b> a horse.", "He hasn't <b>ridden</b>."], question: ["Have you <b>ridden</b> a camel?", "Where have you <b>ridden</b>?", "Has she <b>ridden</b>?"] },
-        future: { positive: ["We will <b>ride</b> at dawn.", "I will <b>ride</b> with you.", "He will <b>ride</b> shotgun."], negative: ["We won't <b>ride</b> that.", "I won't <b>ride</b> alone.", "She won't <b>ride</b>."], question: ["Will you <b>ride</b> along?", "Where will we <b>ride</b>?", "Who will <b>ride</b>?"] },
-        goingTo: { positive: ["I am <b>going to ride</b>.", "He is <b>going to ride</b>.", "We are <b>going to ride</b>."], negative: ["I am not <b>going to ride</b>.", "He isn't <b>going to ride</b>.", "We aren't <b>going to ride</b>."], question: ["Are you <b>going to ride</b>?", "Where are you <b>going to ride</b>?", "Who is <b>going to ride</b>?"] }
+        presentSimple: { positive: "I <b>ride</b> my bike.", negative: "He <b>doesn't ride</b> horses.", question: "Do you <b>ride</b> the bus?" },
+        past: { positive: "He <b>rode</b> the bus.", negative: "I didn't <b>ride</b> today.", question: "Did you <b>ride</b>?" },
+        presentContinuous: { positive: "I am <b>riding</b> a horse.", negative: "He isn't <b>riding</b>.", question: "Are you <b>riding</b>?" },
+        presentPerfect: { positive: "I have <b>ridden</b> a bike.", negative: "She hasn't <b>ridden</b> one.", question: "Have you <b>ridden</b> a horse?" },
+        goingTo: { positive: "I am <b>going to ride</b>.", negative: "He isn't <b>going to ride</b>.", question: "Are you <b>going to ride</b>?" }
     },
     "Run": {
-        infinitive: { positive: ["I can <b>run</b> fast.", "I like to <b>run</b>.", "Let's <b>run</b> away."], negative: ["Do not <b>run</b> in halls.", "I can't <b>run</b> far.", "He doesn't <b>run</b>."], question: ["Why do you <b>run</b>?", "Can you <b>run</b>?", "Where do you <b>run</b>?"] },
-        past: { positive: ["She <b>ran</b> a marathon.", "He <b>ran</b> home.", "I <b>ran</b> yesterday."], negative: ["She didn't <b>run</b> away.", "He didn't <b>run</b> fast.", "We didn't <b>run</b>."], question: ["Where did he <b>run</b>?", "Who <b>ran</b>?", "Why did she <b>run</b>?"] },
-        participle: { positive: ["They have <b>run</b> out.", "I have <b>run</b> a mile.", "She has <b>run</b> business."], negative: ["They haven't <b>run</b> yet.", "I haven't <b>run</b> far.", "He hasn't <b>run</b> away."], question: ["Have you <b>run</b> this program?", "Has she <b>run</b>?", "Where have they <b>run</b>?"] },
-        future: { positive: ["It will <b>run</b> smoothly.", "I will <b>run</b> there.", "He will <b>run</b> for office."], negative: ["It won't <b>run</b> forever.", "I won't <b>run</b> away.", "She won't <b>run</b>."], question: ["Will the car <b>run</b>?", "When will you <b>run</b>?", "Who will <b>run</b>?"] },
-        goingTo: { positive: ["I am <b>going to run</b>.", "He is <b>going to run</b>.", "We are <b>going to run</b>."], negative: ["I am not <b>going to run</b>.", "He isn't <b>going to run</b>.", "We aren't <b>going to run</b>."], question: ["Are you <b>going to run</b>?", "Where are you <b>going to run</b>?", "Who is <b>going to run</b>?"] }
+        presentSimple: { positive: "I <b>run</b> every day.", negative: "He <b>doesn't run</b> fast.", question: "Do you <b>run</b> here?" },
+        past: { positive: "She <b>ran</b> yesterday.", negative: "He didn't <b>run</b> far.", question: "Did they <b>run</b>?" },
+        presentContinuous: { positive: "I am <b>running</b> late.", negative: "He isn't <b>running</b>.", question: "Are you <b>running</b>?" },
+        presentPerfect: { positive: "I have <b>run</b> miles.", negative: "He hasn't <b>run</b> away.", question: "Have you <b>run</b> well?" },
+        goingTo: { positive: "I am <b>going to run</b>.", negative: "He isn't <b>going to run</b>.", question: "Are you <b>going to run</b>?" }
     },
     "Say": {
-        infinitive: { positive: ["Please <b>say</b> hello.", "I want to <b>say</b> something.", "You must <b>say</b> it."], negative: ["Don't <b>say</b> that.", "I won't <b>say</b> anything.", "He doesn't <b>say</b> much."], question: ["What did you <b>say</b>?", "Can you <b>say</b> it again?", "Why <b>say</b> that?"] },
-        past: { positive: ["He <b>said</b> yes.", "She <b>said</b> goodbye.", "I <b>said</b> sorry."], negative: ["He didn't <b>say</b> no.", "I didn't <b>say</b> that.", "She didn't <b>say</b> a word."], question: ["Who <b>said</b> that?", "What did he <b>say</b>?", "Why did she <b>say</b> no?"] },
-        participle: { positive: ["Enough has been <b>said</b>.", "I have <b>said</b> yes.", "She has <b>said</b> it all."], negative: ["Nothing was <b>said</b>.", "He hasn't <b>said</b> anything.", "I haven't <b>said</b> goodbye."], question: ["Have you <b>said</b> thanks?", "What have you <b>said</b>?", "Has he <b>said</b> sorry?"] },
-        future: { positive: ["I will <b>say</b> a prayer.", "He will <b>say</b> the truth.", "We will <b>say</b> yes."], negative: ["I won't <b>say</b> a word.", "She won't <b>say</b> no.", "They won't <b>say</b> anything."], question: ["What will you <b>say</b>?", "Will you <b>say</b> hello?", "When will he <b>say</b> it?"] },
-        goingTo: { positive: ["I am <b>going to say</b> it.", "He is <b>going to say</b> yes.", "We are <b>going to say</b> hello."], negative: ["I am not <b>going to say</b> no.", "He isn't <b>going to say</b> anything.", "We aren't <b>going to say</b>."], question: ["Are you <b>going to say</b>?", "What are you <b>going to say</b>?", "Who is <b>going to say</b>?"] }
+        presentSimple: { positive: "I <b>say</b> hello.", negative: "He <b>doesn't say</b> much.", question: "Do you <b>say</b> yes?" },
+        past: { positive: "He <b>said</b> hello.", negative: "She didn't <b>say</b> that.", question: "What did you <b>say</b>?" },
+        presentContinuous: { positive: "I am <b>saying</b> it now.", negative: "He isn't <b>saying</b> anything.", question: "What are you <b>saying</b>?" },
+        presentPerfect: { positive: "I have <b>said</b> enough.", negative: "She hasn't <b>said</b> yes.", question: "Have you <b>said</b> it?" },
+        goingTo: { positive: "I am <b>going to say</b> it.", negative: "He isn't <b>going to say</b>.", question: "Are you <b>going to say</b>?" }
     },
     "See": {
-        infinitive: { positive: ["I want to <b>see</b> you.", "Can you <b>see</b> the board?", "Let's <b>see</b>."], negative: ["I can't <b>see</b> anything.", "Don't <b>see</b> him.", "He doesn't <b>see</b> well."], question: ["Can you <b>see</b> this?", "Did you <b>see</b> the game?", "Who did you <b>see</b>?"] },
-        past: { positive: ["I <b>saw</b> a movie.", "She <b>saw</b> him yesterday.", "We <b>saw</b> it happen."], negative: ["I didn't <b>see</b> anything.", "She didn't <b>see</b> me.", "He didn't <b>see</b> the sign."], question: ["Did you <b>see</b> that?", "Who <b>saw</b> it?", "When did you <b>see</b> him?"] },
-        participle: { positive: ["I have <b>seen</b> it all.", "She has <b>seen</b> enough.", "We have <b>seen</b> better days."], negative: ["I haven't <b>seen</b> him.", "She hasn't <b>seen</b> the movie.", "They haven't <b>seen</b> us."], question: ["Have you <b>seen</b> this?", "Has she <b>seen</b> the doctor?", "Who has <b>seen</b> my keys?"] },
-        future: { positive: ["I will <b>see</b> you soon.", "We will <b>see</b> about that.", "He will <b>see</b> the truth."], negative: ["I won't <b>see</b> you.", "We won't <b>see</b> eye to eye.", "She won't <b>see</b> it coming."], question: ["Will I <b>see</b> you?", "When will we <b>see</b> results?", "Who will <b>see</b> this?"] },
-        goingTo: { positive: ["I am <b>going to see</b> him.", "We are <b>going to see</b>.", "She is <b>going to see</b> the doctor."], negative: ["I am not <b>going to see</b>.", "We aren't <b>going to see</b>.", "She isn't <b>going to see</b>."], question: ["Are you <b>going to see</b>?", "Who is <b>going to see</b>?", "Is she <b>going to see</b>?"] }
+        presentSimple: { positive: "I <b>see</b> the bird.", negative: "He <b>doesn't see</b> well.", question: "Do you <b>see</b> it?" },
+        past: { positive: "I <b>saw</b> him.", negative: "She didn't <b>see</b> me.", question: "Did you <b>see</b> that?" },
+        presentContinuous: { positive: "I am <b>seeing</b> clearly.", negative: "He isn't <b>seeing</b> anyone.", question: "Are you <b>seeing</b> this?" },
+        presentPerfect: { positive: "I have <b>seen</b> it.", negative: "We haven't <b>seen</b> him.", question: "Have you <b>seen</b> this?" },
+        goingTo: { positive: "I am <b>going to see</b> him.", negative: "We aren't <b>going to see</b>.", question: "Are you <b>going to see</b>?" }
     },
     "Sell": {
-        infinitive: { positive: ["I want to <b>sell</b> my car.", "They <b>sell</b> fruit here.", "Can you <b>sell</b> this?"], negative: ["Don't <b>sell</b> yourself short.", "I won't <b>sell</b> it.", "He doesn't <b>sell</b> online."], question: ["Do you <b>sell</b> batteries?", "Will you <b>sell</b> your house?", "Why <b>sell</b> now?"] },
-        past: { positive: ["He <b>sold</b> his bike.", "She <b>sold</b> lemonade.", "We <b>sold</b> out."], negative: ["He didn't <b>sell</b> much.", "I didn't <b>sell</b> anything.", "They didn't <b>sell</b> the company."], question: ["Who <b>sold</b> you this?", "What did you <b>sell</b>?", "When did she <b>sell</b> it?"] },
-        participle: { positive: ["We have <b>sold</b> everything.", "She has <b>sold</b> the house.", "He has <b>sold</b> his soul."], negative: ["We haven't <b>sold</b> yet.", "It hasn't <b>sold</b> well.", "I haven't <b>sold</b> a thing."], question: ["Have you <b>sold</b> the car?", "What have they <b>sold</b>?", "Has it <b>sold</b>?"] },
-        future: { positive: ["I will <b>sell</b> it tomorrow.", "He will <b>sell</b> his shares.", "It will <b>sell</b> fast."], negative: ["I won't <b>sell</b> to him.", "She won't <b>sell</b> her ring.", "They won't <b>sell</b> cheap."], question: ["Will you <b>sell</b> it?", "When will he <b>sell</b>?", "Will it <b>sell</b>?"] },
-        goingTo: { positive: ["I am <b>going to sell</b> it.", "He is <b>going to sell</b>.", "We are <b>going to sell</b>."], negative: ["I am not <b>going to sell</b>.", "He isn't <b>going to sell</b>.", "We aren't <b>going to sell</b>."], question: ["Are you <b>going to sell</b>?", "What are you <b>going to sell</b>?", "Is he <b>going to sell</b>?"] }
+        presentSimple: { positive: "I <b>sell</b> cars.", negative: "He <b>doesn't sell</b> food.", question: "Do you <b>sell</b> this?" },
+        past: { positive: "He <b>sold</b> his bike.", negative: "I didn't <b>sell</b> it.", question: "What did you <b>sell</b>?" },
+        presentContinuous: { positive: "I am <b>selling</b> my house.", negative: "He isn't <b>selling</b>.", question: "Are you <b>selling</b>?" },
+        presentPerfect: { positive: "I have <b>sold</b> it.", negative: "He hasn't <b>sold</b> out.", question: "Have you <b>sold</b> yours?" },
+        goingTo: { positive: "I am <b>going to sell</b> it.", negative: "He isn't <b>going to sell</b>.", question: "Are you <b>going to sell</b>?" }
     },
     "Send": {
-        infinitive: { positive: ["I need to <b>send</b> an email.", "Please <b>send</b> help.", "<b>Send</b> it now."], negative: ["Don't <b>send</b> money.", "I can't <b>send</b> attachments.", "He won't <b>send</b> it."], question: ["Can you <b>send</b> this?", "Did you <b>send</b> a card?", "Who will <b>send</b> it?"] },
-        past: { positive: ["I <b>sent</b> a letter.", "She <b>sent</b> a gift.", "He <b>sent</b> me home."], negative: ["I didn't <b>send</b> that.", "She didn't <b>send</b> word.", "He didn't <b>send</b> flowers."], question: ["Who <b>sent</b> this?", "What did you <b>send</b>?", "When did she <b>send</b> it?"] },
-        participle: { positive: ["I have <b>sent</b> the file.", "We have <b>sent</b> invites.", "She has <b>sent</b> money."], negative: ["I haven't <b>sent</b> it yet.", "We haven't <b>sent</b> the package.", "He hasn't <b>sent</b> news."], question: ["Have you <b>sent</b> the email?", "Has she <b>sent</b> word?", "What have you <b>sent</b>?"] },
-        future: { positive: ["I will <b>send</b> it soon.", "He will <b>send</b> a reply.", "We will <b>send</b> someone."], negative: ["I won't <b>send</b> spam.", "She won't <b>send</b> it back.", "They won't <b>send</b> help."], question: ["Will you <b>send</b> me?", "When will you <b>send</b> it?", "Who will <b>send</b> flowers?"] },
-        goingTo: { positive: ["I am <b>going to send</b> it.", "She is <b>going to send</b> a letter.", "We are <b>going to send</b> help."], negative: ["I am not <b>going to send</b> money.", "She isn't <b>going to send</b>.", "We aren't <b>going to send</b>."], question: ["Are you <b>going to send</b>?", "Who is <b>going to send</b>?", "Is she <b>going to send</b>?"] }
+        presentSimple: { positive: "I <b>send</b> emails.", negative: "He <b>doesn't send</b> mail.", question: "Do you <b>send</b> money?" },
+        past: { positive: "I <b>sent</b> a letter.", negative: "She didn't <b>send</b> it.", question: "Who <b>sent</b> this?" },
+        presentContinuous: { positive: "I am <b>sending</b> a package.", negative: "He isn't <b>sending</b> it.", question: "Are you <b>sending</b>?" },
+        presentPerfect: { positive: "I have <b>sent</b> it.", negative: "She hasn't <b>sent</b> mail.", question: "Have you <b>sent</b> it?" },
+        goingTo: { positive: "I am <b>going to send</b> it.", negative: "She isn't <b>going to send</b>.", question: "Are you <b>going to send</b>?" }
     },
     "Sing": {
-        infinitive: { positive: ["I like to <b>sing</b>.", "Let's <b>sing</b> a song.", "Can you <b>sing</b>?"], negative: ["I can't <b>sing</b> well.", "Don't <b>sing</b> loud.", "He doesn't <b>sing</b>."], question: ["Do you <b>sing</b>?", "What will you <b>sing</b>?", "Can she <b>sing</b>?"] },
-        past: { positive: ["She <b>sang</b> beautifully.", "We <b>sang</b> together.", "He <b>sang</b> karaoke."], negative: ["She didn't <b>sing</b> solo.", "We didn't <b>sing</b> loud.", "I didn't <b>sing</b> that."], question: ["Who <b>sang</b> that song?", "What did you <b>sing</b>?", "Why did he <b>sing</b>?"] },
-        participle: { positive: ["I have <b>sung</b> in a choir.", "She has <b>sung</b> opera.", "We have <b>sung</b> before."], negative: ["I haven't <b>sung</b> in years.", "He hasn't <b>sung</b> professionally.", "They haven't <b>sung</b> yet."], question: ["Have you <b>sung</b> this?", "Has she <b>sung</b> live?", "Who has <b>sung</b> well?"] },
-        future: { positive: ["I will <b>sing</b> for you.", "She will <b>sing</b> at the wedding.", "We will <b>sing</b> together."], negative: ["I won't <b>sing</b> solo.", "He won't <b>sing</b>.", "They won't <b>sing</b> well."], question: ["Will you <b>sing</b>?", "What will she <b>sing</b>?", "When will we <b>sing</b>?"] },
-        goingTo: { positive: ["I am <b>going to sing</b>.", "He is <b>going to sing</b>.", "We are <b>going to sing</b>."], negative: ["I am not <b>going to sing</b>.", "He isn't <b>going to sing</b>.", "We aren't <b>going to sing</b>."], question: ["Are you <b>going to sing</b>?", "What are you <b>going to sing</b>?", "Who is <b>going to sing</b>?"] }
+        presentSimple: { positive: "I <b>sing</b> songs.", negative: "He <b>doesn't sing</b> well.", question: "Do you <b>sing</b>?" },
+        past: { positive: "She <b>sang</b> a song.", negative: "I didn't <b>sing</b>.", question: "Did you <b>sing</b>?" },
+        presentContinuous: { positive: "I am <b>singing</b> now.", negative: "He isn't <b>singing</b>.", question: "Are you <b>singing</b>?" },
+        presentPerfect: { positive: "I have <b>sung</b> this.", negative: "She hasn't <b>sung</b> yet.", question: "Have you <b>sung</b> before?" },
+        goingTo: { positive: "I am <b>going to sing</b>.", negative: "He isn't <b>going to sing</b>.", question: "Are you <b>going to sing</b>?" }
     },
     "Sit": {
-        infinitive: { positive: ["Please <b>sit</b> down.", "Can I <b>sit</b> here?", "Ready to <b>sit</b>."], negative: ["Don't <b>sit</b> on floor.", "I can't <b>sit</b> still.", "He won't <b>sit</b>."], question: ["Can I <b>sit</b>?", "Where do I <b>sit</b>?", "Will you <b>sit</b>?"] },
-        past: { positive: ["He <b>sat</b> on the chair.", "We <b>sat</b> together.", "She <b>sat</b> waiting."], negative: ["He didn't <b>sit</b> down.", "I didn't <b>sit</b> there.", "They didn't <b>sit</b> still."], question: ["Where did you <b>sit</b>?", "Who <b>sat</b> here?", "Why did he <b>sit</b>?"] },
-        participle: { positive: ["I have <b>sat</b> here hours.", "She has <b>sat</b> for exam.", "We have <b>sat</b> enough."], negative: ["I haven't <b>sat</b> down yet.", "He hasn't <b>sat</b> still.", "They haven't <b>sat</b> there."], question: ["Have you <b>sat</b> on this?", "Who has <b>sat</b> here?", "Has she <b>sat</b> long?"] },
-        future: { positive: ["I will <b>sit</b> here.", "She will <b>sit</b> with us.", "We will <b>sit</b> down."], negative: ["I won't <b>sit</b> by him.", "He won't <b>sit</b> still.", "They won't <b>sit</b>."], question: ["Will you <b>sit</b>?", "Where will we <b>sit</b>?", "Who will <b>sit</b> next?"] },
-        goingTo: { positive: ["I am <b>going to sit</b> here.", "He is <b>going to sit</b>.", "We are <b>going to sit</b> down."], negative: ["I am not <b>going to sit</b>.", "He isn't <b>going to sit</b>.", "We aren't <b>going to sit</b>."], question: ["Are you <b>going to sit</b>?", "Where are you <b>going to sit</b>?", "Is he <b>going to sit</b>?"] }
+        presentSimple: { positive: "I <b>sit</b> here.", negative: "He <b>doesn't sit</b> still.", question: "Do you <b>sit</b> down?" },
+        past: { positive: "I <b>sat</b> down.", negative: "He didn't <b>sit</b>.", question: "Where did you <b>sit</b>?" },
+        presentContinuous: { positive: "I am <b>sitting</b>.", negative: "He isn't <b>sitting</b>.", question: "Are you <b>sitting</b>?" },
+        presentPerfect: { positive: "I have <b>sat</b> there.", negative: "He hasn't <b>sat</b> down.", question: "Have you <b>sat</b> here?" },
+        goingTo: { positive: "I am <b>going to sit</b>.", negative: "He isn't <b>going to sit</b>.", question: "Are you <b>going to sit</b>?" }
     },
     "Sleep": {
-        infinitive: { positive: ["I need to <b>sleep</b>.", "Go to <b>sleep</b>.", "Can you <b>sleep</b>?"], negative: ["I can't <b>sleep</b>.", "Don't <b>sleep</b> late.", "He doesn't <b>sleep</b> well."], question: ["Did you <b>sleep</b> well?", "When do you <b>sleep</b>?", "Why not <b>sleep</b>?"] },
-        past: { positive: ["I <b>slept</b> 8 hours.", "She <b>slept</b> in.", "He <b>slept</b> on the sofa."], negative: ["I didn't <b>sleep</b> well.", "She didn't <b>sleep</b> enough.", "He didn't <b>sleep</b> at all."], question: ["How did you <b>sleep</b>?", "Where did he <b>sleep</b>?", "Who <b>slept</b> here?"] },
-        participle: { positive: ["I have <b>slept</b> well.", "She has <b>slept</b> all day.", "We have <b>slept</b> there."], negative: ["I haven't <b>slept</b> yet.", "He hasn't <b>slept</b> continuously.", "They haven't <b>slept</b>."], question: ["Have you <b>slept</b>?", "Has she <b>slept</b> enough?", "Who has <b>slept</b>?"] },
-        future: { positive: ["I will <b>sleep</b> soon.", "He will <b>sleep</b> soundly.", "We will <b>sleep</b> over."], negative: ["I won't <b>sleep</b> well.", "She won't <b>sleep</b> here.", "They won't <b>sleep</b>."], question: ["Will you <b>sleep</b>?", "Where will you <b>sleep</b>?", "When will he <b>sleep</b>?"] },
-        goingTo: { positive: ["I am <b>going to sleep</b>.", "He is <b>going to sleep</b>.", "We are <b>going to sleep</b>."], negative: ["I am not <b>going to sleep</b>.", "He isn't <b>going to sleep</b>.", "We aren't <b>going to sleep</b>."], question: ["Are you <b>going to sleep</b>?", "When are you <b>going to sleep</b>?", "Is he <b>going to sleep</b>?"] }
+        presentSimple: { positive: "I <b>sleep</b> well.", negative: "He <b>doesn't sleep</b> much.", question: "Do you <b>sleep</b> late?" },
+        past: { positive: "I <b>slept</b> poorly.", negative: "She didn't <b>sleep</b>.", question: "Did you <b>sleep</b>?" },
+        presentContinuous: { positive: "I am <b>sleeping</b> now.", negative: "He isn't <b>sleeping</b>.", question: "Are you <b>sleeping</b>?" },
+        presentPerfect: { positive: "I have <b>slept</b> well.", negative: "I haven't <b>slept</b>.", question: "Have you <b>slept</b>?" },
+        goingTo: { positive: "I am <b>going to sleep</b>.", negative: "He isn't <b>going to sleep</b>.", question: "Are you <b>going to sleep</b>?" }
     },
     "Speak": {
-        infinitive: { positive: ["I want to <b>speak</b> English.", "Can I <b>speak</b> to you?", "Let him <b>speak</b>."], negative: ["I don't <b>speak</b> French.", "Don't <b>speak</b> loudly.", "She can't <b>speak</b> now."], question: ["Do you <b>speak</b> English?", "Can we <b>speak</b>?", "Who will <b>speak</b>?"] },
-        past: { positive: ["He <b>spoke</b> softly.", "She <b>spoke</b> to me.", "We <b>spoke</b> yesterday."], negative: ["He didn't <b>speak</b> clearly.", "I didn't <b>speak</b> up.", "She didn't <b>speak</b>."], question: ["Who <b>spoke</b>?", "What did he <b>speak</b> about?", "When did you <b>speak</b>?"] },
-        participle: { positive: ["I have <b>spoken</b> truth.", "She has <b>spoken</b> to boss.", "We have <b>spoken</b> often."], negative: ["I haven't <b>spoken</b> to him.", "She hasn't <b>spoken</b> yet.", "They haven't <b>spoken</b>."], question: ["Have you <b>spoken</b>?", "Has he <b>spoken</b> up?", "Who has <b>spoken</b>?"] },
-        future: { positive: ["I will <b>speak</b> at event.", "He will <b>speak</b> to you.", "We will <b>speak</b> soon."], negative: ["I won't <b>speak</b> lies.", "She won't <b>speak</b> again.", "They won't <b>speak</b>."], question: ["Will you <b>speak</b>?", "Who will <b>speak</b> next?", "When will we <b>speak</b>?"] },
-        goingTo: { positive: ["I am <b>going to speak</b>.", "He is <b>going to speak</b>.", "We are <b>going to speak</b>."], negative: ["I am not <b>going to speak</b>.", "He isn't <b>going to speak</b>.", "We aren't <b>going to speak</b>."], question: ["Are you <b>going to speak</b>?", "Who is <b>going to speak</b>?", "Is he <b>going to speak</b>?"] }
+        presentSimple: { positive: "I <b>speak</b> English.", negative: "He <b>doesn't speak</b> clearly.", question: "Do you <b>speak</b> French?" },
+        past: { positive: "He <b>spoke</b> softly.", negative: "She didn't <b>speak</b>.", question: "Who <b>spoke</b>?" },
+        presentContinuous: { positive: "I am <b>speaking</b>.", negative: "He isn't <b>speaking</b>.", question: "Are you <b>speaking</b>?" },
+        presentPerfect: { positive: "I have <b>spoken</b> up.", negative: "He hasn't <b>spoken</b>.", question: "Have you <b>spoken</b>?" },
+        goingTo: { positive: "I am <b>going to speak</b>.", negative: "He isn't <b>going to speak</b>.", question: "Are you <b>going to speak</b>?" }
     },
     "Spell": {
-        infinitive: { positive: ["Can you <b>spell</b> it?", "I can <b>spell</b> my name.", "Learn to <b>spell</b>."], negative: ["I can't <b>spell</b> that.", "Don't <b>spell</b> it wrong.", "He doesn't <b>spell</b> well."], question: ["How do you <b>spell</b> cat?", "Can you <b>spell</b> this?", "Did I <b>spell</b> it right?"] },
-        past: { positive: ["He <b>spelt</b> it wrong.", "She <b>spelt</b> her name.", "I <b>spelt</b> the word."], negative: ["He didn't <b>spell</b> it right.", "I didn't <b>spell</b> checking.", "She didn't <b>spell</b> clearly."], question: ["How did you <b>spell</b> it?", "Who <b>spelt</b> that?", "Why did he <b>spell</b> it so?"] },
-        participle: { positive: ["I have <b>spelt</b> it correctly.", "She has <b>spelt</b> it out.", "We have <b>spelt</b> words."], negative: ["I haven't <b>spelt</b> it yet.", "He hasn't <b>spelt</b> well.", "They haven't <b>spelt</b>."], question: ["Have you <b>spelt</b> it?", "Has she <b>spelt</b> names?", "Who has <b>spelt</b>?"] },
-        future: { positive: ["I will <b>spell</b> it for you.", "He will <b>spell</b> the word.", "We will <b>spell</b> check."], negative: ["I won't <b>spell</b> it out.", "She won't <b>spell</b> wrong.", "They won't <b>spell</b>."], question: ["Will you <b>spell</b> it?", "Can you <b>spell</b> later?", "How will you <b>spell</b> it?"] },
-        goingTo: { positive: ["I am <b>going to spell</b> it.", "He is <b>going to spell</b>.", "We are <b>going to spell</b>."], negative: ["I am not <b>going to spell</b>.", "He isn't <b>going to spell</b>.", "We aren't <b>going to spell</b>."], question: ["Are you <b>going to spell</b>?", "How are you <b>going to spell</b>?", "Who is <b>going to spell</b>?"] }
+        presentSimple: { positive: "I <b>spell</b> names.", negative: "He <b>doesn't spell</b> well.", question: "Do you <b>spell</b> that?" },
+        past: { positive: "I <b>spelt</b> it wrong.", negative: "He didn't <b>spell</b> it.", question: "How did you <b>spell</b> it?" },
+        presentContinuous: { positive: "I am <b>spelling</b> the word.", negative: "He isn't <b>spelling</b>.", question: "Are you <b>spelling</b>?" },
+        presentPerfect: { positive: "I have <b>spelt</b> it right.", negative: "He hasn't <b>spelt</b> it.", question: "Have you <b>spelt</b> this?" },
+        goingTo: { positive: "I am <b>going to spell</b> it.", negative: "He isn't <b>going to spell</b>.", question: "Are you <b>going to spell</b>?" }
     },
     "Spend": {
-        infinitive: { positive: ["I want to <b>spend</b> time.", "Don't <b>spend</b> too much.", "Let's <b>spend</b> the day."], negative: ["I won't <b>spend</b> a dime.", "Don't <b>spend</b> it all.", "We can't <b>spend</b> more."], question: ["How much did you <b>spend</b>?", "Where will you <b>spend</b> the night?", "Do you <b>spend</b> cash?"] },
-        past: { positive: ["I <b>spent</b> all my money.", "She <b>spent</b> the day here.", "We <b>spent</b> hours."], negative: ["I didn't <b>spend</b> much.", "He didn't <b>spend</b> time.", "They didn't <b>spend</b> it."], question: ["What did you <b>spend</b> on?", "Who <b>spent</b> the most?", "How did you <b>spend</b> your day?"] },
-        participle: { positive: ["I have <b>spent</b> enough.", "She has <b>spent</b> a lot.", "We have <b>spent</b> the budget."], negative: ["I haven't <b>spent</b> a penny.", "He hasn't <b>spent</b> time.", "They haven't <b>spent</b> saving."], question: ["Have you <b>spent</b> it?", "Has she <b>spent</b> money?", "What have they <b>spent</b>?"] },
-        future: { positive: ["I will <b>spend</b> wisely.", "He will <b>spend</b> the night.", "We will <b>spend</b> money."], negative: ["I won't <b>spend</b> foolishly.", "She won't <b>spend</b> more.", "They won't <b>spend</b> the night."], question: ["Will you <b>spend</b> time?", "How much will you <b>spend</b>?", "Where will we <b>spend</b>?"] },
-        goingTo: { positive: ["I am <b>going to spend</b> time.", "He is <b>going to spend</b> money.", "We are <b>going to spend</b> the day."], negative: ["I am not <b>going to spend</b>.", "He isn't <b>going to spend</b>.", "We aren't <b>going to spend</b>."], question: ["Are you <b>going to spend</b>?", "How much are you <b>going to spend</b>?", "Where are you <b>going to spend</b>?"] }
+        presentSimple: { positive: "I <b>spend</b> time.", negative: "He <b>doesn't spend</b> money.", question: "Do you <b>spend</b> cash?" },
+        past: { positive: "I <b>spent</b> the day.", negative: "He didn't <b>spend</b> much.", question: "Did you <b>spend</b> it?" },
+        presentContinuous: { positive: "I am <b>spending</b> time.", negative: "He isn't <b>spending</b>.", question: "Are you <b>spending</b>?" },
+        presentPerfect: { positive: "I have <b>spent</b> it all.", negative: "He hasn't <b>spent</b> a dime.", question: "Have you <b>spent</b> it?" },
+        goingTo: { positive: "I am <b>going to spend</b> it.", negative: "He isn't <b>going to spend</b>.", question: "Are you <b>going to spend</b>?" }
     },
     "Steal": {
-        infinitive: { positive: ["It is wrong to <b>steal</b>.", "Don't <b>steal</b>.", "He might <b>steal</b>."], negative: ["I would never <b>steal</b>.", "You shouldn't <b>steal</b>.", "She won't <b>steal</b>."], question: ["Why did he <b>steal</b>?", "Did you <b>steal</b> this?", "Who would <b>steal</b>?"] },
-        past: { positive: ["He <b>stole</b> a car.", "She <b>stole</b> the show.", "They <b>stole</b> money."], negative: ["He didn't <b>steal</b> it.", "I didn't <b>steal</b> anything.", "We didn't <b>steal</b>."], question: ["Who <b>stole</b> my pen?", "What did he <b>steal</b>?", "When did she <b>steal</b> it?"] },
-        participle: { positive: ["Someone has <b>stolen</b> my bag.", "He has <b>stolen</b> hearts.", "It was <b>stolen</b>."], negative: ["He hasn't <b>stolen</b> before.", "Nothing was <b>stolen</b>.", "She hasn't <b>stolen</b>."], question: ["Has he <b>stolen</b>?", "What was <b>stolen</b>?", "Have they <b>stolen</b> anything?"] },
-        future: { positive: ["He will <b>steal</b> again.", "They will <b>steal</b> your heart.", "She will <b>steal</b> bases."], negative: ["I won't <b>steal</b>.", "He won't <b>steal</b> from you.", "They won't <b>steal</b>."], question: ["Will someone <b>steal</b> it?", "Will you <b>steal</b>?", "Who will <b>steal</b>?"] },
-        goingTo: { positive: ["He is <b>going to steal</b>.", "They are <b>going to steal</b>.", "She is <b>going to steal</b>."], negative: ["He isn't <b>going to steal</b>.", "They aren't <b>going to steal</b>.", "She isn't <b>going to steal</b>."], question: ["Is he <b>going to steal</b>?", "Are they <b>going to steal</b>?", "Who is <b>going to steal</b>?"] }
+        presentSimple: { positive: "I never <b>steal</b>.", negative: "He <b>doesn't steal</b>.", question: "Do you <b>steal</b>?" },
+        past: { positive: "He <b>stole</b> the money.", negative: "I didn't <b>steal</b> it.", question: "Who <b>stole</b> it?" },
+        presentContinuous: { positive: "He is <b>stealing</b>.", negative: "They aren't <b>stealing</b>.", question: "Are you <b>stealing</b>?" },
+        presentPerfect: { positive: "He has <b>stolen</b> it.", negative: "I haven't <b>stolen</b> anything.", question: "Have you <b>stolen</b>?" },
+        goingTo: { positive: "He is <b>going to steal</b>.", negative: "They aren't <b>going to steal</b>.", question: "Are you <b>going to steal</b>?" }
     },
     "Swim": {
-        infinitive: { positive: ["I love to <b>swim</b>.", "Let's <b>swim</b> here.", "Can you <b>swim</b>?"], negative: ["Don't <b>swim</b> there.", "I can't <b>swim</b>.", "He doesn't <b>swim</b>."], question: ["Do you <b>swim</b>?", "Where can we <b>swim</b>?", "Can she <b>swim</b>?"] },
-        past: { positive: ["We <b>swam</b> in the ocean.", "She <b>swam</b> fast.", "He <b>swam</b> across."], negative: ["We didn't <b>swim</b> far.", "I didn't <b>swim</b> yesterday.", "She didn't <b>swim</b>."], question: ["Where did you <b>swim</b>?", "Who <b>swam</b> with you?", "When did they <b>swim</b>?"] },
-        participle: { positive: ["I have <b>swum</b> here before.", "She has <b>swum</b> miles.", "We have <b>swum</b> deep."], negative: ["I haven't <b>swum</b> in years.", "He hasn't <b>swum</b> there.", "They haven't <b>swum</b>."], question: ["Have you <b>swum</b> here?", "Has she <b>swum</b> laps?", "Who has <b>swum</b>?"] },
-        future: { positive: ["I will <b>swim</b> tomorrow.", "He will <b>swim</b> laps.", "We will <b>swim</b> there."], negative: ["I won't <b>swim</b> today.", "She won't <b>swim</b> deep.", "They won't <b>swim</b>."], question: ["Will you <b>swim</b>?", "Where will we <b>swim</b>?", "When will he <b>swim</b>?"] },
-        goingTo: { positive: ["I am <b>going to swim</b>.", "She is <b>going to swim</b>.", "We are <b>going to swim</b>."], negative: ["I am not <b>going to swim</b>.", "He isn't <b>going to swim</b>.", "We aren't <b>going to swim</b>."], question: ["Are you <b>going to swim</b>?", "Where are you <b>going to swim</b>?", "Is she <b>going to swim</b>?"] }
+        presentSimple: { positive: "I <b>swim</b> fast.", negative: "He <b>doesn't swim</b>.", question: "Do you <b>swim</b>?" },
+        past: { positive: "We <b>swam</b> yesterday.", negative: "He didn't <b>swim</b>.", question: "Did you <b>swim</b>?" },
+        presentContinuous: { positive: "I am <b>swimming</b>.", negative: "He isn't <b>swimming</b>.", question: "Are you <b>swimming</b>?" },
+        presentPerfect: { positive: "I have <b>swum</b> miles.", negative: "He hasn't <b>swum</b> here.", question: "Have you <b>swum</b> today?" },
+        goingTo: { positive: "I am <b>going to swim</b>.", negative: "He isn't <b>going to swim</b>.", question: "Are you <b>going to swim</b>?" }
     },
     "Take": {
-        infinitive: { positive: ["Please <b>take</b> one.", "I need to <b>take</b> a break.", "<b>Take</b> your time."], negative: ["Don't <b>take</b> it.", "I won't <b>take</b> long.", "He can't <b>take</b> more."], question: ["Can I <b>take</b> this?", "Will you <b>take</b> me?", "Did you <b>take</b> it?"] },
-        past: { positive: ["He <b>took</b> my advice.", "I <b>took</b> the bus.", "She <b>took</b> a photo."], negative: ["He didn't <b>take</b> it well.", "I didn't <b>take</b> the money.", "She didn't <b>take</b> part."], question: ["Who <b>took</b> my phone?", "What did you <b>take</b>?", "Where did he <b>take</b> us?"] },
-        participle: { positive: ["I have <b>taken</b> enough.", "It is <b>taken</b>.", "She has <b>taken</b> over."], negative: ["I haven't <b>taken</b> it.", "He hasn't <b>taken</b> meds.", "Seats aren't <b>taken</b>."], question: ["Have you <b>taken</b> notes?", "Is this seat <b>taken</b>?", "What have you <b>taken</b>?"] },
-        future: { positive: ["I will <b>take</b> care of it.", "He will <b>take</b> a nap.", "It will <b>take</b> time."], negative: ["I won't <b>take</b> it.", "She won't <b>take</b> risks.", "They won't <b>take</b> long."], question: ["Will you <b>take</b> this?", "Who will <b>take</b> over?", "What will it <b>take</b>?"] },
-        goingTo: { positive: ["I am <b>going to take</b> it.", "He is <b>going to take</b> a break.", "We are <b>going to take</b> time."], negative: ["I am not <b>going to take</b> it.", "He isn't <b>going to take</b> long.", "We aren't <b>going to take</b> it."], question: ["Are you <b>going to take</b>?", "What are you <b>going to take</b>?", "Is he <b>going to take</b>?"] }
+        presentSimple: { positive: "I <b>take</b> photographs.", negative: "He <b>doesn't take</b> sugar.", question: "Do you <b>take</b> cards?" },
+        past: { positive: "I <b>took</b> the bus.", negative: "He didn't <b>take</b> it.", question: "Who <b>took</b> my pen?" },
+        presentContinuous: { positive: "I am <b>taking</b> a break.", negative: "He isn't <b>taking</b> it.", question: "Are you <b>taking</b> notes?" },
+        presentPerfect: { positive: "I have <b>taken</b> it.", negative: "He hasn't <b>taken</b> a photo.", question: "Have you <b>taken</b> a break?" },
+        goingTo: { positive: "I am <b>going to take</b> it.", negative: "He isn't <b>going to take</b>.", question: "Are you <b>going to take</b>?" }
     },
     "Teach": {
-        infinitive: { positive: ["I want to <b>teach</b>.", "Can you <b>teach</b> me?", "He loves to <b>teach</b>."], negative: ["Don't <b>teach</b> bad words.", "I can't <b>teach</b> math.", "She doesn't <b>teach</b>."], question: ["Do you <b>teach</b> English?", "Can you <b>teach</b> him?", "What do you <b>teach</b>?"] },
-        past: { positive: ["She <b>taught</b> me well.", "He <b>taught</b> history.", "I <b>taught</b> myself."], negative: ["She didn't <b>teach</b> us.", "He didn't <b>teach</b> today.", "We didn't <b>teach</b> that."], question: ["Who <b>taught</b> you?", "What did he <b>teach</b>?", "Where did you <b>teach</b>?"] },
-        participle: { positive: ["He has <b>taught</b> for years.", "I have <b>taught</b> kids.", "She has <b>taught</b> many."], negative: ["He hasn't <b>taught</b> me.", "We haven't <b>taught</b> that.", "She hasn't <b>taught</b> before."], question: ["Have you <b>taught</b> online?", "Has he <b>taught</b> you?", "What has she <b>taught</b>?"] },
-        future: { positive: ["I will <b>teach</b> you.", "He will <b>teach</b> class.", "We will <b>teach</b> everything."], negative: ["I won't <b>teach</b> lies.", "She won't <b>teach</b> tomorrow.", "They won't <b>teach</b>."], question: ["Will you <b>teach</b> me?", "What will he <b>teach</b>?", "When will you <b>teach</b>?"] },
-        goingTo: { positive: ["I am <b>going to teach</b>.", "She is <b>going to teach</b> me.", "We are <b>going to teach</b>."], negative: ["I am not <b>going to teach</b>.", "She isn't <b>going to teach</b>.", "We aren't <b>going to teach</b>."], question: ["Are you <b>going to teach</b>?", "What are you <b>going to teach</b>?", "Who is <b>going to teach</b>?"] }
+        presentSimple: { positive: "I <b>teach</b> math.", negative: "He <b>doesn't teach</b> well.", question: "Do you <b>teach</b> here?" },
+        past: { positive: "She <b>taught</b> me.", negative: "He didn't <b>teach</b> that.", question: "Who <b>taught</b> you?" },
+        presentContinuous: { positive: "I am <b>teaching</b>.", negative: "He isn't <b>teaching</b>.", question: "Are you <b>teaching</b>?" },
+        presentPerfect: { positive: "I have <b>taught</b> math.", negative: "He hasn't <b>taught</b>.", question: "Have you <b>taught</b> it?" },
+        goingTo: { positive: "I am <b>going to teach</b>.", negative: "He isn't <b>going to teach</b>.", question: "Are you <b>going to teach</b>?" }
     },
     "Tell": {
-        infinitive: { positive: ["Please <b>tell</b> me.", "I can <b>tell</b> stories.", "Time will <b>tell</b>."], negative: ["Don't <b>tell</b> lies.", "I won't <b>tell</b> anyone.", "He can't <b>tell</b>."], question: ["Can you <b>tell</b> time?", "Did you <b>tell</b> him?", "What did you <b>tell</b>?"] },
-        past: { positive: ["He <b>told</b> the truth.", "I <b>told</b> you so.", "She <b>told</b> a story."], negative: ["He didn't <b>tell</b> me.", "I didn't <b>tell</b> lies.", "They didn't <b>tell</b> us."], question: ["Who <b>told</b> you?", "What did he <b>tell</b>?", "Why did she <b>tell</b>?"] },
-        participle: { positive: ["I have <b>told</b> you twice.", "She has <b>told</b> everyone.", "We have <b>told</b> stories."], negative: ["I haven't <b>told</b> him.", "He hasn't <b>told</b> tales.", "They haven't <b>told</b> yet."], question: ["Have you <b>told</b> her?", "Who has <b>told</b>?", "Has he <b>told</b> truth?"] },
-        future: { positive: ["I will <b>tell</b> him.", "Time will <b>tell</b>.", "She will <b>tell</b> us."], negative: ["I won't <b>tell</b> secret.", "He won't <b>tell</b> lies.", "They won't <b>tell</b>."], question: ["Will you <b>tell</b> me?", "Who will you <b>tell</b>?", "What will they <b>tell</b>?"] },
-        goingTo: { positive: ["I am <b>going to tell</b> him.", "She is <b>going to tell</b> the truth.", "We are <b>going to tell</b>."], negative: ["I am not <b>going to tell</b>.", "She isn't <b>going to tell</b>.", "We aren't <b>going to tell</b>."], question: ["Are you <b>going to tell</b>?", "Who are you <b>going to tell</b>?", "Is she <b>going to tell</b>?"] }
+        presentSimple: { positive: "I <b>tell</b> jokes.", negative: "He <b>doesn't tell</b> the truth.", question: "Do you <b>tell</b> stories?" },
+        past: { positive: "I <b>told</b> him.", negative: "He didn't <b>tell</b> me.", question: "Did you <b>tell</b> her?" },
+        presentContinuous: { positive: "I am <b>telling</b> you.", negative: "He isn't <b>telling</b> truths.", question: "Are you <b>telling</b> me?" },
+        presentPerfect: { positive: "I have <b>told</b> you.", negative: "He hasn't <b>told</b> us.", question: "Have you <b>told</b> him?" },
+        goingTo: { positive: "I am <b>going to tell</b> him.", negative: "He isn't <b>going to tell</b>.", question: "Are you <b>going to tell</b>?" }
     },
     "Think": {
-        infinitive: { positive: ["I need to <b>think</b>.", "Do you <b>think</b> so?", "Take time to <b>think</b>."], negative: ["Don't <b>think</b> bad thoughts.", "I don't <b>think</b> so.", "He doesn't <b>think</b>."], question: ["What do you <b>think</b>?", "How do you <b>think</b>?", "Do you <b>think</b> fast?"] },
-        past: { positive: ["I <b>thought</b> of you.", "He <b>thought</b> hard.", "We <b>thought</b> alike."], negative: ["I didn't <b>think</b> of that.", "She didn't <b>think</b> twice.", "They didn't <b>think</b>."], question: ["What did you <b>think</b>?", "Who <b>thought</b> of this?", "Why did he <b>think</b> that?"] },
-        participle: { positive: ["I have <b>thought</b> about it.", "She has <b>thought</b> long.", "We have <b>thought</b> over."], negative: ["I haven't <b>thought</b> yet.", "He hasn't <b>thought</b> through.", "They haven't <b>thought</b>."], question: ["Have you <b>thought</b>?", "Has she <b>thought</b> why?", "Who has <b>thought</b> this?"] },
-        future: { positive: ["I will <b>think</b> about it.", "He will <b>think</b> tomorrow.", "We will <b>think</b> positive."], negative: ["I won't <b>think</b> negative.", "She won't <b>think</b> less.", "He won't <b>think</b>."], question: ["Will you <b>think</b> of me?", "What will you <b>think</b>?", "When will we <b>think</b>?"] },
-        goingTo: { positive: ["I am <b>going to think</b>.", "He is <b>going to think</b> about it.", "We are <b>going to think</b>."], negative: ["I am not <b>going to think</b>.", "He isn't <b>going to think</b>.", "We aren't <b>going to think</b>."], question: ["Are you <b>going to think</b>?", "What are you <b>going to think</b>?", "Is he <b>going to think</b>?"] }
+        presentSimple: { positive: "I <b>think</b> so.", negative: "He <b>doesn't think</b> clearly.", question: "Do you <b>think</b> that?" },
+        past: { positive: "I <b>thought</b> of it.", negative: "He didn't <b>think</b>.", question: "What did you <b>think</b>?" },
+        presentContinuous: { positive: "I am <b>thinking</b>.", negative: "He isn't <b>thinking</b>.", question: "Are you <b>thinking</b>?" },
+        presentPerfect: { positive: "I have <b>thought</b> about it.", negative: "He hasn't <b>thought</b>.", question: "Have you <b>thought</b>?" },
+        goingTo: { positive: "I am <b>going to think</b>.", negative: "He isn't <b>going to think</b>.", question: "Are you <b>going to think</b>?" }
     },
     "Throw": {
-        infinitive: { positive: ["Don't <b>throw</b> trash.", "Can you <b>throw</b> far?", "<b>Throw</b> the ball."], negative: ["Don't <b>throw</b> it away.", "I can't <b>throw</b> well.", "He doesn't <b>throw</b>."], question: ["Can you <b>throw</b>?", "Did you <b>throw</b> it?", "What did you <b>throw</b>?"] },
-        past: { positive: ["He <b>threw</b> the ball.", "She <b>threw</b> a party.", "I <b>threw</b> it out."], negative: ["He didn't <b>throw</b> hard.", "I didn't <b>throw</b> it.", "She didn't <b>throw</b> up."], question: ["Who <b>threw</b> this?", "Where did you <b>throw</b>?", "Why did he <b>throw</b> it?"] },
-        participle: { positive: ["I have <b>thrown</b> it away.", "He has <b>thrown</b> far.", "She has <b>thrown</b> up."], negative: ["I haven't <b>thrown</b> it.", "He hasn't <b>thrown</b> pass.", "They haven't <b>thrown</b>."], question: ["Have you <b>thrown</b> it?", "Has he <b>thrown</b> ball?", "What have they <b>thrown</b>?"] },
-        future: { positive: ["I will <b>throw</b> it.", "He will <b>throw</b> far.", "We will <b>throw</b> party."], negative: ["I won't <b>throw</b> up.", "He won't <b>throw</b> game.", "She won't <b>throw</b>."], question: ["Will you <b>throw</b>?", "Who will <b>throw</b> first?", "When will we <b>throw</b>?"] },
-        goingTo: { positive: ["I am <b>going to throw</b> it.", "He is <b>going to throw</b>.", "We are <b>going to throw</b> a party."], negative: ["I am not <b>going to throw</b>.", "He isn't <b>going to throw</b>.", "We aren't <b>going to throw</b>."], question: ["Are you <b>going to throw</b>?", "Where are you <b>going to throw</b>?", "Is he <b>going to throw</b>?"] }
+        presentSimple: { positive: "I <b>throw</b> the ball.", negative: "He <b>doesn't throw</b> far.", question: "Do you <b>throw</b> away?" },
+        past: { positive: "I <b>threw</b> it.", negative: "He didn't <b>throw</b> it.", question: "Who <b>threw</b> this?" },
+        presentContinuous: { positive: "I am <b>throwing</b> it.", negative: "He isn't <b>throwing</b> up.", question: "Are you <b>throwing</b>?" },
+        presentPerfect: { positive: "I have <b>thrown</b> it.", negative: "He hasn't <b>thrown</b>.", question: "Have you <b>thrown</b> it?" },
+        goingTo: { positive: "I am <b>going to throw</b> it.", negative: "He isn't <b>going to throw</b>.", question: "Are you <b>going to throw</b>?" }
     },
     "Understand": {
-        infinitive: { positive: ["I want to <b>understand</b>.", "Try to <b>understand</b>.", "You will <b>understand</b>."], negative: ["I don't <b>understand</b>.", "He cannot <b>understand</b>.", "Don't mis<b>understand</b>."], question: ["Do you <b>understand</b>?", "Can you <b>understand</b>?", "How to <b>understand</b>?"] },
-        past: { positive: ["I <b>understood</b> everything.", "She <b>understood</b> me.", "We <b>understood</b> the rule."], negative: ["I didn't <b>understand</b>.", "He didn't <b>understand</b> why.", "They didn't <b>understand</b>."], question: ["Did you <b>understand</b>?", "Who <b>understood</b>?", "What did he <b>understand</b>?"] },
-        participle: { positive: ["I have <b>understood</b>.", "She has <b>understood</b> task.", "We have <b>understood</b>."], negative: ["I haven't <b>understood</b> yet.", "He hasn't <b>understood</b>.", "They haven't <b>understood</b>."], question: ["Have you <b>understood</b>?", "Has she <b>understood</b>?", "Who has <b>understood</b>?"] },
-        future: { positive: ["You will <b>understand</b> later.", "He will <b>understand</b> soon.", "We will <b>understand</b>."], negative: ["You won't <b>understand</b>.", "He won't <b>understand</b> it.", "They won't <b>understand</b>."], question: ["Will you <b>understand</b>?", "When will I <b>understand</b>?", "Who will <b>understand</b>?"] },
-        goingTo: { positive: ["You are <b>going to understand</b>.", "He is <b>going to understand</b>.", "We are <b>going to understand</b>."], negative: ["You aren't <b>going to understand</b>.", "He isn't <b>going to understand</b>.", "We aren't <b>going to understand</b>."], question: ["Are you <b>going to understand</b>?", "How are you <b>going to understand</b>?", "Is he <b>going to understand</b>?"] }
+        presentSimple: { positive: "I <b>understand</b> you.", negative: "He <b>doesn't understand</b>.", question: "Do you <b>understand</b>?" },
+        past: { positive: "I <b>understood</b>.", negative: "He didn't <b>understand</b>.", question: "Did you <b>understand</b>?" },
+        presentContinuous: { positive: "I am <b>understanding</b> better.", negative: "He isn't <b>understanding</b>.", question: "Are you <b>understanding</b>?" },
+        presentPerfect: { positive: "I have <b>understood</b>.", negative: "He hasn't <b>understood</b>.", question: "Have you <b>understood</b>?" },
+        goingTo: { positive: "I am <b>going to understand</b>.", negative: "He isn't <b>going to understand</b>.", question: "Are you <b>going to understand</b>?" }
     },
     "Wake": {
-        infinitive: { positive: ["I need to <b>wake</b> up.", "Please <b>wake</b> me.", "Don't <b>wake</b> the baby."], negative: ["Don't <b>wake</b> him.", "I can't <b>wake</b> early.", "He doesn't <b>wake</b> easy."], question: ["When do you <b>wake</b>?", "Can you <b>wake</b> me?", "Did he <b>wake</b>?"] },
-        past: { positive: ["I <b>woke</b> up late.", "She <b>woke</b> early.", "He <b>woke</b> the dog."], negative: ["I didn't <b>wake</b> up.", "He didn't <b>wake</b> me.", "She didn't <b>wake</b>."], question: ["When did you <b>wake</b>?", "Who <b>woke</b> you?", "Why did he <b>wake</b>?"] },
-        participle: { positive: ["I have <b>woken</b> up.", "She has <b>woken</b> early.", "We have <b>woken</b>."], negative: ["I haven't <b>woken</b> yet.", "He hasn't <b>woken</b> up.", "They haven't <b>woken</b>."], question: ["Have you <b>woken</b>?", "Has she <b>woken</b> up?", "Who has <b>woken</b>?"] },
-        future: { positive: ["I will <b>wake</b> you.", "He will <b>wake</b> up.", "We will <b>wake</b> early."], negative: ["I won't <b>wake</b> late.", "He won't <b>wake</b> her.", "They won't <b>wake</b>."], question: ["Will you <b>wake</b> me?", "When will you <b>wake</b>?", "Who will <b>wake</b>?"] },
-        goingTo: { positive: ["I am <b>going to wake</b> up.", "He is <b>going to wake</b> me.", "We are <b>going to wake</b> early."], negative: ["I am not <b>going to wake</b>.", "He isn't <b>going to wake</b>.", "We aren't <b>going to wake</b>."], question: ["Are you <b>going to wake</b>?", "When are you <b>going to wake</b>?", "Is he <b>going to wake</b>?"] }
+        presentSimple: { positive: "I <b>wake</b> up early.", negative: "He <b>doesn't wake</b> easily.", question: "Do you <b>wake</b> up?" },
+        past: { positive: "I <b>woke</b> up.", negative: "He didn't <b>wake</b> me.", question: "When did you <b>wake</b>?" },
+        presentContinuous: { positive: "I am <b>waking</b> up.", negative: "He isn't <b>waking</b> up.", question: "Are you <b>waking</b>?" },
+        presentPerfect: { positive: "I have <b>woken</b> up.", negative: "He hasn't <b>woken</b> up.", question: "Have you <b>woken</b> him?" },
+        goingTo: { positive: "I am <b>going to wake</b> up.", negative: "He isn't <b>going to wake</b>.", question: "Are you <b>going to wake</b>?" }
     },
     "Wear": {
-        infinitive: { positive: ["I like to <b>wear</b> blue.", "You must <b>wear</b> a helmet.", "She wants to <b>wear</b> it."], negative: ["Don't <b>wear</b> that.", "I won't <b>wear</b> it.", "He doesn't <b>wear</b> ties."], question: ["What will you <b>wear</b>?", "Do you <b>wear</b> glasses?", "Can I <b>wear</b> this?"] },
-        past: { positive: ["She <b>wore</b> a dress.", "He <b>wore</b> a hat.", "I <b>wore</b> boots."], negative: ["She didn't <b>wear</b> makeup.", "I didn't <b>wear</b> a coat.", "He didn't <b>wear</b> it."], question: ["What did you <b>wear</b>?", "Who <b>wore</b> red?", "Why did she <b>wear</b> that?"] },
-        participle: { positive: ["I have <b>worn</b> this before.", "She has <b>worn</b> it out.", "We have <b>worn</b> masks."], negative: ["I haven't <b>worn</b> it.", "He hasn't <b>worn</b> out.", "They haven't <b>worn</b> ties."], question: ["Have you <b>worn</b> this?", "Has she <b>worn</b> glasses?", "What have you <b>worn</b>?"] },
-        future: { positive: ["I will <b>wear</b> a suit.", "She will <b>wear</b> white.", "We will <b>wear</b> smiles."], negative: ["I won't <b>wear</b> that.", "He won't <b>wear</b> green.", "They won't <b>wear</b> it."], question: ["Will you <b>wear</b> this?", "What will she <b>wear</b>?", "When will we <b>wear</b> it?"] },
-        goingTo: { positive: ["I am <b>going to wear</b> it.", "She is <b>going to wear</b> red.", "We are <b>going to wear</b> masks."], negative: ["I am not <b>going to wear</b>.", "She isn't <b>going to wear</b>.", "We aren't <b>going to wear</b>."], question: ["Are you <b>going to wear</b>?", "What are you <b>going to wear</b>?", "Is she <b>going to wear</b>?"] }
+        presentSimple: { positive: "I <b>wear</b> glasses.", negative: "He <b>doesn't wear</b> hats.", question: "Do you <b>wear</b> red?" },
+        past: { positive: "I <b>wore</b> a suit.", negative: "He didn't <b>wear</b> it.", question: "What did you <b>wear</b>?" },
+        presentContinuous: { positive: "I am <b>wearing</b> jeans.", negative: "He isn't <b>wearing</b> it.", question: "Are you <b>wearing</b> that?" },
+        presentPerfect: { positive: "I have <b>worn</b> it.", negative: "He hasn't <b>worn</b> a tie.", question: "Have you <b>worn</b> this?" },
+        goingTo: { positive: "I am <b>going to wear</b> it.", negative: "He isn't <b>going to wear</b>.", question: "Are you <b>going to wear</b>?" }
     },
     "Write": {
-        infinitive: { positive: ["I want to <b>write</b> a book.", "Please <b>write</b> me.", "He loves to <b>write</b>."], negative: ["I cannot <b>write</b> well.", "Don't <b>write</b> on walls.", "She doesn't <b>write</b>."], question: ["Can you <b>write</b>?", "What do you <b>write</b>?", "Did you <b>write</b> it?"] },
-        past: { positive: ["She <b>wrote</b> a letter.", "He <b>wrote</b> a poem.", "I <b>wrote</b> notes."], negative: ["She didn't <b>write</b> back.", "I didn't <b>write</b> it.", "He didn't <b>write</b> well."], question: ["Who <b>wrote</b> this?", "What did you <b>write</b>?", "When did she <b>write</b>?"] },
-        participle: { positive: ["I have <b>written</b> books.", "It is <b>written</b>.", "She has <b>written</b> home."], negative: ["I haven't <b>written</b> yet.", "He hasn't <b>written</b> back.", "Nothing is <b>written</b>."], question: ["Have you <b>written</b>?", "What have you <b>written</b>?", "Has she <b>written</b>?"] },
-        future: { positive: ["I will <b>write</b> soon.", "He will <b>write</b> a song.", "We will <b>write</b> exams."], negative: ["I won't <b>write</b> lies.", "She won't <b>write</b> back.", "They won't <b>write</b>."], question: ["Will you <b>write</b>?", "Who will <b>write</b>?", "When will you <b>write</b>?"] },
-        goingTo: { positive: ["I am <b>going to write</b>.", "He is <b>going to write</b> a book.", "We are <b>going to write</b>."], negative: ["I am not <b>going to write</b>.", "He isn't <b>going to write</b>.", "We aren't <b>going to write</b>."], question: ["Are you <b>going to write</b>?", "What are you <b>going to write</b>?", "Is he <b>going to write</b>?"] }
+        presentSimple: { positive: "I <b>write</b> code.", negative: "He <b>doesn't write</b> letters.", question: "Do you <b>write</b> songs?" },
+        past: { positive: "I <b>wrote</b> a book.", negative: "He didn't <b>write</b> me.", question: "Did you <b>write</b> this?" },
+        presentContinuous: { positive: "I am <b>writing</b> now.", negative: "He isn't <b>writing</b>.", question: "Are you <b>writing</b>?" },
+        presentPerfect: { positive: "I have <b>written</b> a book.", negative: "He hasn't <b>written</b> back.", question: "Have you <b>written</b> it?" },
+        goingTo: { positive: "I am <b>going to write</b>.", negative: "He isn't <b>going to write</b>.", question: "Are you <b>going to write</b>?" }
     }
 };
